@@ -9,7 +9,7 @@ services:
         depends_on:
             - database
         ports:
-            - ${WEB_PORT_EXTERNAL}:3000
+            - ${WEB_EXTERNAL_PORT}:3000
         command: ["npm", "run", "${ENVIRONMENT}", "--prefix", "/app"]
     database:
         container_name: ${PROJECT_NAME}-database
