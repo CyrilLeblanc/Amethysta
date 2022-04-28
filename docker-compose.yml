@@ -2,30 +2,30 @@ version: "3"
 
 services:
     web:
-        container_name: ${PROJECT_NAME:-app}-web
+        container_name: ${PROJECT_NAME}-web
         image: node
         volumes:
             - .:/app:rw
         depends_on:
             - database
         ports:
-            - ${PORT_EXTERNAL:-3000}:3000
+            - ${WEB_PORT_EXTERNAL}:3000
         command: ["npm", "run", "${ENVIRONMENT}", "--prefix", "/app"]
     database:
-        container_name: ${PROJECT_NAME:-app}-database
+        container_name: ${PROJECT_NAME}-database
         image: mysql
         command: --default-authentication-plugin=mysql_native_password
         environment:
-            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-changeMe}
-            MYSQL_DATABASE: ${MYSQL_DATABASE:-jellypost}
-            MYSQL_USER: ${MYSQL_USER:-jellypost}
-            MYSQL_PASSWORD: ${MYSQL_PASSWORD:-changeMe}
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
         ports:
-            - 3306:3306
+            - ${MYSQL_PORT}:3306
         volumes:
             - ./var-lib-mysql:/var/lib/mysql:rw
     phpmyadmin:
-        container_name: ${PROJECT_NAME:-app}-phpmyadmin
+        container_name: ${PROJECT_NAME}-phpmyadmin
         image: phpmyadmin/phpmyadmin:latest
         links:
             - database
@@ -34,6 +34,6 @@ services:
         hostname: phpmyadmin
         restart: always
         environment:
-            PMA_HOST: database
-            PMA_USER: ${MYSQL_USER:-jellypost}
-            PMA_PASSWORD: ${MYSQL_PASSWORD:-changeMe}
+            PMA_HOST: ${MYSQL_HOST}
+            PMA_USER: ${MYSQL_USER}
+            PMA_PASSWORD: ${MYSQL_PASSWORD}

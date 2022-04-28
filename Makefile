@@ -20,4 +20,4 @@ bash: ## run bash in docker container
 	docker-compose exec -T ${PROJECT_NAME}-web bash
 
 log: ## display log of web docker container
-	docker logs Amethysta-web -f 
+	docker logs amethysta-web -f 
