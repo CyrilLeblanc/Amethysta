@@ -11,15 +11,15 @@ if (process.env.ENVIRONMENT === "dev") {
     app.use(require("./middlewares/profiler"));
 }
 
+app.set('view engine', 'ejs');
 app.use(express.json());
-
 app.use(
     cors({
         origin: `${PROTOCOL}://${HOST}:${PORT}`,
     })
 );
 
-app.use("/", require("./routes/example.router"));
+app.use("/example", require("./routes/example.router"));
 
 /**
  * starting the server
