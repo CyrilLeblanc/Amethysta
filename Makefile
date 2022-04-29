@@ -19,7 +19,7 @@ restart: ## restart docker container
 	docker-compose restart
 
 bash: ## run bash in docker container
-	docker-compose exec -T ${PROJECT_NAME}-web bash
+	docker exec -it --user 0 ${PROJECT_NAME}-web bash
 
 log: ## display log of web docker container
 	docker logs amethysta-web -f 
