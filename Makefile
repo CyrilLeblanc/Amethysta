@@ -1,3 +1,5 @@
+include .env
+
 help: ## display this help message
 	@echo 'usage: make [target]'
 	@echo
@@ -21,3 +23,6 @@ bash: ## run bash in docker container
 
 log: ## display log of web docker container
 	docker logs amethysta-web -f 
+
+update-scheme: ## update the scheme in database
+	cat scheme.sql | sudo docker exec -i ${PROJECT_NAME}-database mysql -u${MYSQL_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE}
