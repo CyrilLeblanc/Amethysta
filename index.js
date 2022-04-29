@@ -12,8 +12,10 @@ if (process.env.ENVIRONMENT === "dev") {
 
 app.set("view engine", "ejs");
 app.use(express.json());
+app.use(express.static("public"));
 
 app.use("/example", require("./routes/example.router"));
+app.use("/feed", require("./routes/feed.router"));
 
 /**
  * starting the server
