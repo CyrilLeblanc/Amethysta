@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const cors = require("cors");
 const app = express();
 
 const PROTOCOL = process.env.WEB_PROTOCOL;
@@ -11,13 +10,8 @@ if (process.env.ENVIRONMENT === "dev") {
     app.use(require("./middlewares/profiler"));
 }
 
-app.set('view engine', 'ejs');
+app.set("view engine", "ejs");
 app.use(express.json());
-app.use(
-    cors({
-        origin: `${PROTOCOL}://${HOST}:${PORT}`,
-    })
-);
 
 app.use("/example", require("./routes/example.router"));
 
