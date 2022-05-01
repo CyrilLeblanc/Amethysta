@@ -9,14 +9,14 @@
         STYLESHEETS 
     #%>
     <%- include('partials/stylesheets') -%>
-    <% for (const stylePath of stylePaths || []) { %>
+    <% for (const stylePath of stylePaths) { %>
         <link rel="stylesheet" href="/css/<%- stylePath %>">
     <% } %>
     <%# 
         SCRIPTS 
     #%>
     <%- include('partials/javascripts') -%>
-    <% for (const scriptPath of scriptPaths || []) { %>
+    <% for (const scriptPath of scriptPaths) { %>
         <script src="/js/<%- scriptPath %>"></script>
     <% } %>
 </head>

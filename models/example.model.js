@@ -1,5 +1,8 @@
+var repo = require("./repository");
+repo.table = "example";
+
 module.exports = {
-    id: null,
-    name: null,
-    description: null
-}
+    getAllExample: async function () {
+        return await repo.findAll();
+    },
+};

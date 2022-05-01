@@ -10,10 +10,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema amethysta
 -- -----------------------------------------------------
-
--- -----------------------------------------------------
--- Schema amethysta
--- -----------------------------------------------------
+DROP DATABASE `amethysta`;
 CREATE SCHEMA IF NOT EXISTS `amethysta` DEFAULT CHARACTER SET utf8 ;
 USE `amethysta` ;
 
@@ -21,7 +18,7 @@ USE `amethysta` ;
 -- Table `amethysta`.`user`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `amethysta`.`user` (
-  `id_user` INT NOT NULL,
+  `id_user` INT NOT NULL AUTO_INCREMENT,
   `lastname` VARCHAR(45) NULL,
   `firstname` VARCHAR(45) NULL,
   `email` VARCHAR(45) NULL,
@@ -31,7 +28,8 @@ CREATE TABLE IF NOT EXISTS `amethysta`.`user` (
   `password` VARCHAR(255) NULL,
   `is_email_authorized` TINYINT NULL,
   `is_validate` TINYINT NULL,
-  PRIMARY KEY (`id_user`))
+  PRIMARY KEY (`id_user`),
+  UNIQUE (`email`))
 ENGINE = InnoDB;
 
 
@@ -39,7 +37,7 @@ ENGINE = InnoDB;
 -- Table `amethysta`.`post`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `amethysta`.`post` (
-  `id_post` INT NOT NULL,
+  `id_post` INT NOT NULL AUTO_INCREMENT,
   `id_user` INT NOT NULL,
   `data_path` VARCHAR(255) NULL,
   `description` VARCHAR(255) NULL,
@@ -57,7 +55,7 @@ ENGINE = InnoDB;
 -- Table `amethysta`.`conversation`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `amethysta`.`conversation` (
-  `id_conversation` INT NOT NULL,
+  `id_conversation` INT NOT NULL AUTO_INCREMENT,
   `user_to_user` VARCHAR(45) NULL,
   PRIMARY KEY (`id_conversation`))
 ENGINE = InnoDB;
@@ -67,7 +65,7 @@ ENGINE = InnoDB;
 -- Table `amethysta`.`message`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `amethysta`.`message` (
-  `id_message` INT NOT NULL,
+  `id_message` INT NOT NULL AUTO_INCREMENT,
   `id_conversation` INT NOT NULL,
   `id_user` INT NOT NULL,
   `date` DATETIME NULL,
@@ -92,7 +90,7 @@ ENGINE = InnoDB;
 -- Table `amethysta`.`like`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `amethysta`.`like` (
-  `id_like` INT NOT NULL,
+  `id_like` INT NOT NULL AUTO_INCREMENT,
   `id_post` INT NOT NULL,
   `id_user` INT NOT NULL,
   PRIMARY KEY (`id_like`),
@@ -115,7 +113,7 @@ ENGINE = InnoDB;
 -- Table `amethysta`.`comment`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `amethysta`.`comment` (
-  `id_comment` INT NOT NULL,
+  `id_comment` INT NOT NULL AUTO_INCREMENT,
   `id_post` INT NOT NULL,
   `id_user` INT NOT NULL,
   `content` VARCHAR(255) NULL,
@@ -139,7 +137,7 @@ ENGINE = InnoDB;
 -- Table `amethysta`.`save`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `amethysta`.`save` (
-  `id_save` INT NOT NULL,
+  `id_save` INT NOT NULL AUTO_INCREMENT,
   `id_user` INT NOT NULL,
   `id_post` INT NOT NULL,
   PRIMARY KEY (`id_save`),
@@ -162,7 +160,7 @@ ENGINE = InnoDB;
 -- Table `amethysta`.`notification`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `amethysta`.`notification` (
-  `id_notification` INT NOT NULL,
+  `id_notification` INT NOT NULL AUTO_INCREMENT,
   `id_user` INT NOT NULL,
   `table` VARCHAR(45) NULL,
   `id_entity` INT NULL,
