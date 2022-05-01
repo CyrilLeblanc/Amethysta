@@ -1,15 +1,11 @@
 const mysql = require("./mysql");
 
-const queryCallback = function (err, results) {
-    if (err) {
-        reject(err);
-    } else {
-        resolve(err);
-    }
-};
-
 module.exports = {
     table: undefined,
+    setTable: (table) => {
+        this.table = table;
+        return this;
+    },
 
     /**
      * Retrieve an object based on id
@@ -18,10 +14,20 @@ module.exports = {
      */
     find: function (id) {
         return new Promise((resolve, reject) => {
-            mysql.query(
-                `SELECT * FROM ${this.table} WHERE id = ?`,
+            mysql.execute(
+                `SELECT * FROM ${this.table} WHERE id_${this.table} = ? LIMIT 1`,
                 [id],
-                queryCallback
+                (err, results) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        if (typeof results === 'array' && results.length > 0) {
+                            resolve(results[0]);
+                        } else {
+                            resolve(null);
+                        }
+                    }
+                }
             );
         });
     },
@@ -32,7 +38,13 @@ module.exports = {
      */
     findAll: function () {
         return new Promise((resolve, reject) => {
-            mysql.query(`SELECT * FROM ${this.table}`, queryCallback);
+            mysql.query(`SELECT * FROM ${this.table}`, (err, results) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(results);
+                }
+            });
         });
     },
 
@@ -47,7 +59,13 @@ module.exports = {
             mysql.query(
                 `SELECT * FROM ${this.table} WHERE ${column} = ?`,
                 [value],
-                queryCallback
+                (err, results) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(results);
+                    }
+                }
             );
         });
     },
@@ -63,7 +81,17 @@ module.exports = {
             mysql.query(
                 `SELECT * FROM ${this.table} WHERE ${column} = ? LIMIT 1`,
                 [value],
-                queryCallback
+                (err, results) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        if (typeof results === 'object' && results.length > 0) {
+                            resolve(results[0]);
+                        } else {
+                            resolve(null);
+                        }
+                    }
+                }
             );
         });
     },
@@ -79,7 +107,13 @@ module.exports = {
             mysql.query(
                 `UPDATE ${this.table} SET ? WHERE id = ?`,
                 [data, id],
-                queryCallback
+                (err, results) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(results);
+                    }
+                }
             );
         });
     },
@@ -94,7 +128,13 @@ module.exports = {
             mysql.query(
                 `INSERT INTO ${this.table} SET ?`,
                 [data],
-                queryCallback
+                (err, results) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(results);
+                    }
+                }
             );
         });
     },
