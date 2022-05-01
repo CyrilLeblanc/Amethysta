@@ -19,7 +19,7 @@ module.exports = {
         } else {
             if (req.body.password.length < process.env.PASSWORD_MIN_LENGTH) {
                 res.redirect("/register?error=PASSWORD_MIN_LENGTH");
-            } else if (req.body.password !== req.body.passwordConfirm) {
+            } else if (req.body.password !== req.body.confirmPassword) {
                 res.redirect("/register?error=PASSWORD_CONFIRM");
             } else {
                 var success = await User.register(
