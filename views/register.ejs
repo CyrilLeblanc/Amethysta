@@ -1,0 +1,46 @@
+<h1><%- title %></h1>
+<form method="post" id="registerForm">
+    <div class="fieldset">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required />
+    </div>
+    <div class="fieldset">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required />
+    </div>
+    <div class="fieldset">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+            type="password"
+            name="confirmPassword"
+            id="confirmPassword"
+            required
+        />
+    </div>
+    <div class="fieldset">
+        <label for="firstname">First Name</label>
+        <input type="text" name="firstname" id="firstname" required />
+    </div>
+    <div class="fieldset">
+        <label for="lastname">Last Name</label>
+        <input type="text" name="lastname" id="lastname" required />
+    </div>
+    <div class="fieldset">
+        <label for="acceptEmail">Do you accept receiving email ?</label>
+        <input type="checkbox" name="acceptEmail" id="acceptEmail" />
+    </div>
+    <div class="fieldset">
+        <label for="country">Country</label>
+        <select name="country" id="country" required>
+            <option value="">Select a country</option>
+            <% for(country of ['france', 'england', 'other']) {%>
+            <option value="<%- country %>"><%- country %></option>
+            <% } %>
+        </select>
+    </div>
+    <div class="fieldset">
+        <label for="birthDate">Date of birth</label>
+        <input type="date" name="birthDate" id="birthDate" required />
+    </div>
+    <button type="submit">Register</button>
+</form>
