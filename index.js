@@ -10,7 +10,7 @@ const middlewares = [
     "body-parser",
     "express-json",
     "session",
-    "auth",
+    "cookie-parser",
 ];
 
 middlewares.forEach((middleware) => {
