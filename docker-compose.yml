@@ -35,5 +35,5 @@ services:
         restart: always
         environment:
             PMA_HOST: ${MYSQL_HOST}
-            PMA_USER: ${MYSQL_USER}
-            PMA_PASSWORD: ${MYSQL_PASSWORD}
+            PMA_USER: root
+            PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD}
