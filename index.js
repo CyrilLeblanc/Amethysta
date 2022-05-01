@@ -2,24 +2,36 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 
+// =====================================================
+// Middlewares
+// =====================================================
+const middlewares = [
+    "profiler",
+    "body-parser",
+    "express-json",
+    "session",
+    "auth",
+];
+
+middlewares.forEach((middleware) => {
+    app.use(require(`./middlewares/${middleware}`));
+});
+
+// =====================================================
+// Routes
+// =====================================================
+const routeDir = "./routes";
+app.set("view engine", "ejs");
+app.use("/example", require(`${routeDir}/example.router`));
+app.use("/register", require(`${routeDir}/register.router`));
+app.use("/login", require(`${routeDir}/login.router`));
+
+// =====================================================
+// Starting the server
+// =====================================================
 const PROTOCOL = process.env.WEB_PROTOCOL;
 const HOST = process.env.WEB_HOSTNAME;
-const PORT = 3000;
-
-if (process.env.ENVIRONMENT === "dev") {
-    app.use(require("./middlewares/profiler"));
-}
-
-app.set("view engine", "ejs");
-app.use(express.json());
-
-app.use("/example", require("./routes/example.router"));
-
-/**
- * starting the server
- */
-app.listen(PORT, () => {
-    console.log(
-        `listening on ${PROTOCOL}://${HOST}:${process.env.WEB_EXTERNAL_PORT}`
-    );
+const WEB_EXTERNAL_PORT = process.env.WEB_EXTERNAL_PORT;
+app.listen(3000, () => {
+    console.log(`listening on ${PROTOCOL}://${HOST}:${WEB_EXTERNAL_PORT}`);
 });
