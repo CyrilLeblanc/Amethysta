@@ -10,7 +10,7 @@ module.exports = {
             var user = await UserModel.find(req.session.id_user);
             return user;
         } else {
-            return "not connected";
+            return null;
         }
     }
 }
