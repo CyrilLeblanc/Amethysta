@@ -1,6 +1,6 @@
 const UserHelper = require("../helpers/user.helper");
 const UserModel = require("../models/user.model");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 module.exports = {
     get: function (req, res, next) {
