@@ -1,1 +1,57 @@
 @import url('../../node_modules/font-awesome/css/font-awesome.min.css');
+
+:root {
+    --gray: #49484c;
+    --gray-light: #a8a7a9;
+    --gray-dark: #252428;
+
+    --accent: #4c3b76;
+    --accent-light: #9c8ac6;
+    --accent-dark: #1d1432;
+    
+    --white: #ece4ff;
+    --black: #161618;
+}
+
+body {
+    background-color: var(--gray);
+}
+
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: -2.5px 10px 10px var(--black);
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: -2.5px -10px 10px var(--black);
+}
+
+.navbar {
+    display: flex;
+    padding: 0.25em;
+    justify-content: space-around;
+    background-color: var(--accent);
+}
+
+.icon {
+    border: none;
+    background-color: transparent;
+    color: var(--white);
+}
+
+.icon > i {
+    font-size: 25px;
+}
+
+#logo {
+    width: 150px;
+}
