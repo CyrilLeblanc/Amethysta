@@ -13,5 +13,12 @@ module.exports = {
             stylePaths: [],
             scriptPaths: [],
         });
+    },
+
+    getSession: async function(req, res, next) {
+        var UserHelper = require('../helpers/user.helper');
+        res.json(
+            await UserHelper.getUser(req)
+        );
     }
 };

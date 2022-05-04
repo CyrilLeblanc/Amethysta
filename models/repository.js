@@ -21,7 +21,7 @@ module.exports = {
                     if (err) {
                         reject(err);
                     } else {
-                        if (typeof results === 'array' && results.length > 0) {
+                        if (typeof results === 'object' && results.length > 0) {
                             resolve(results[0]);
                         } else {
                             resolve(null);
