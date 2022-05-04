@@ -7,12 +7,12 @@ const app = express();
 // =====================================================
 const middlewares = [
     "profiler",
+    "static",
     "body-parser",
     "express-json",
     "session",
     "cookie-parser",
 ];
-
 middlewares.forEach((middleware) => {
     app.use(require(`./middlewares/${middleware}`));
 });
