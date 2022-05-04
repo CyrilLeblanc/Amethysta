@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 var UserRepository = require("./repository");
 UserRepository.table = "user";
