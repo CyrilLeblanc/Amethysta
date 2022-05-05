@@ -1,13 +1,16 @@
 const Publication = require("../models/post.model");
 const UserHelper = require("../helpers/user.helper");
+const Repository = require("../models/repository");
 
 module.exports = {
-    getPost: function (req, res, next) {
+    getPost: async function (req, res, next) {
+        const allPost = await Repository.findAll("post");
         res.render("base", {
             template: "addPost",
             title: "Add post",
             stylePaths: [],
-            scriptPaths: []
+            scriptPaths: [],
+            allPost : allPost
         });
     },
     addNewPost: async function (req, res, next) {
@@ -21,7 +24,7 @@ module.exports = {
         if (success) {
             res.redirect("/");
         } else {
-
+            res.redirect("/addPost?error=ERROR_CREATION_POST");
         }
     },
 };

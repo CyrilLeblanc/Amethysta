@@ -11,4 +11,14 @@
     <div class="fieldset">
         <input type="submit" value="Add post">
     </div>
+
+    <p>j'affiche des trucs inutiles</p>
+    <p>liste des posts</p>
+    <div>
+        <% for (const post of allPost) { %>
+            <div class="allPost">
+                <%= post.description %>
+            </div>
+        <% } %>
+    </div>
 </form>
