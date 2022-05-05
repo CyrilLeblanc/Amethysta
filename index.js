@@ -10,8 +10,9 @@ const middlewares = [
     "static",
     "body-parser",
     "express-json",
-    "session",
+    "express-session",
     "cookie-parser",
+    "access-limiter",
 ];
 middlewares.forEach((middleware) => {
     app.use(require(`./middlewares/${middleware}`));
@@ -27,6 +28,8 @@ app.use("/example", require(`${routeDir}/example.router`));
 app.use("/register", require(`${routeDir}/register.router`));
 app.use("/login", require(`${routeDir}/login.router`));
 app.use("/feed", require("./routes/feed.router"));
+app.use("/message", require(`${routeDir}/message.router`));
+app.use("/", require(`${routeDir}/index.router`));
 
 // =====================================================
 // Starting the server

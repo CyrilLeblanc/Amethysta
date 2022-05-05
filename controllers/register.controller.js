@@ -2,7 +2,7 @@ const User = require("../models/user.model");
 const UserHelper = require("../helpers/user.helper");
 module.exports = {
     get: function (req, res, next) {
-        if (UserHelper.isConnected(req)) {
+        if (UserHelper.isLoggedIn(req)) {
             res.redirect("/");
         } else {
             res.render("base", {
@@ -14,7 +14,7 @@ module.exports = {
         }
     },
     post: async function (req, res, next) {
-        if (UserHelper.isConnected(req)) {
+        if (UserHelper.isLoggedIn(req)) {
             res.redirect("/");
         } else {
             if (req.body.password.length < process.env.PASSWORD_MIN_LENGTH) {
