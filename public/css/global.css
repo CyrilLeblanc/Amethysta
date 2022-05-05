@@ -1,0 +1,109 @@
+@import url('../../node_modules/font-awesome/css/font-awesome.min.css');
+
+:root {
+    --gray: #49484c;
+    --gray-light: #a8a7a9;
+    --gray-dark: #252428;
+
+    --accent: #4c3b76;
+    --accent-light: #9c8ac6;
+    --accent-dark: #1d1432;
+    
+    --white: #ece4ff;
+    --black: #161618;
+
+    color: var(--white);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    background-color: var(--gray);
+}
+
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: -2.5px 10px 10px var(--black);
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: -2.5px -10px 10px var(--black);
+}
+
+.navbar {
+    display: flex;
+    padding: 0.5em 0;
+    justify-content: space-around;
+    background-color: var(--accent);
+}
+
+.icon {
+    border: none;
+    background-color: transparent;
+    color: var(--white);
+}
+
+.icon > i {
+    font-size: 2em;
+}
+
+.icon > i > label {
+    font-size: 1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#logo {
+    width: 150px;
+}
+
+.feed {
+    margin: 5em 1em;
+}
+
+.post {
+    background-color: var(--gray-dark);
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.top {
+    margin-bottom: 1em;
+}
+
+.bottom {
+    margin-top: 1em;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.content > img {
+    max-width: 90%;
+    margin: 0.25em;
+}
+
+.content > #description {
+    width: 90%;
+    margin: 0.5em 1em;
+    font-size: small;
+    text-align: justify;
+}
+
+.white_shadow {
+    box-shadow: 0px 0px 15px var(--white);
+}
+
+#options, #save {
+    float: right;
+}
