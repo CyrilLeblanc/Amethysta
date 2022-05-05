@@ -12,6 +12,7 @@ const middlewares = [
     "express-json",
     "express-session",
     "cookie-parser",
+    "dev-autologin",
     "access-limiter",
 ];
 middlewares.forEach((middleware) => {
