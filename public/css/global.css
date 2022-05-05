@@ -55,6 +55,11 @@ body {
     font-size: 2em;
 }
 
+.icon > i > label {
+    font-size: 1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 #logo {
     width: 150px;
 }
