@@ -23,7 +23,7 @@ UserRepository.register = async function (
 ) {
     var hash = bcrypt.hashSync(password, 10);
     if (!(await this.userExist(email))) {
-        await this.repo.insert({
+        await this.insert({
             email: email,
             password: hash,
             firstname: firstname,
