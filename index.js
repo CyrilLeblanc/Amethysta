@@ -12,6 +12,7 @@ const middlewares = [
     "express-json",
     "express-session",
     "cookie-parser",
+    "dev-autologin",
     "access-limiter",
 ];
 middlewares.forEach((middleware) => {
@@ -30,6 +31,9 @@ app.use("/login", require(`${routeDir}/login.router`));
 app.use("/addPost", require(`${routeDir}/addPost.router`));
 app.use("/feed", require("./routes/feed.router"));
 app.use("/message", require(`${routeDir}/message.router`));
+app.use("/profile", require(`${routeDir}/profile.router`));
+app.use("/notification", require(`${routeDir}/notification.router`));
+app.use("/comments", require(`${routeDir}/comments.router`));
 app.use("/", require(`${routeDir}/index.router`));
 
 // =====================================================
