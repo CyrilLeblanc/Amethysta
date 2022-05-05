@@ -64,11 +64,11 @@ body {
     width: 150px;
 }
 
-.feed {
+.container {
     margin: 5em 1em;
 }
 
-.post {
+.card {
     background-color: var(--gray-dark);
     padding: 1em;
     margin-bottom: 1em;
@@ -82,18 +82,18 @@ body {
     margin-top: 1em;
 }
 
-.content {
+.middle {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.content > img {
+.middle > img {
     max-width: 90%;
     margin: 0.25em;
 }
 
-.content > #description {
+.middle > #description {
     width: 90%;
     margin: 0.5em 1em;
     font-size: small;
@@ -106,4 +106,30 @@ body {
 
 #options, #save {
     float: right;
+}
+
+.profile {
+    height: 35em;
+}
+
+#qr_code {
+    display: block;
+    float: right;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.submit {
+    background-color: var(--gray);
+    color: var(--white);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    border-radius: 16px;
+    width: fit-content;
+    margin: 0.5em;
+    padding: 0.32em 5em;
 }
