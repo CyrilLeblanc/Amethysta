@@ -1,0 +1,15 @@
+<h1><%-title %></h1>
+<form method="post">
+    <div class="fieldset">
+        <label for="user">User</label>
+        <select name="user" id="user" required>
+            <option value="" select>Select a user</option>
+            <% for(user of users) { %>
+            <option value="<%- user.id_user %>">
+                <%- user.firstname %> <%- user.lastname %>
+            </option>
+            <% } %>
+        </select>
+    </div>
+    <button type="submit">Start a conversation</button>
+</form>
