@@ -1,9 +1,15 @@
 <div class="message-wrapper">
     <% for(message of messages) { %>
-    <div class="message">
-        <div class="content">
-            <%- message.content %>
+    <div class="message <%- isMessageOwner(message) ? "me" : "other" %>-message">
+        <div class="datetime">
+            <div class="date">
+                <%= formatDate(message.date) %>
+            </div>
+            <div class="time">
+                <%= formatTime(message.date) %>
+            </div>
         </div>
+        <div class="content"><%- message.content %></div>
     </div>
     <% } %>
 </div>
