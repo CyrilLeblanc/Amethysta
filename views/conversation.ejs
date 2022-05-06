@@ -1,0 +1,13 @@
+<div class="message-wrapper">
+    <% for(message of messages) { %>
+    <div class="message">
+        <div class="content">
+            <%- message.content %>
+        </div>
+    </div>
+    <% } %>
+</div>
+<form method="post" id="send-message">
+    <input type="text" name="message" placeholder="Message" />
+    <button type="submit">Send</button>
+</form>
