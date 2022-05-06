@@ -1,6 +1,9 @@
 const mysql = require("./mysql");
 
 module.exports = {
+    init: function (table) {
+        return Object.assign({}, require("./repository"), { table: table });
+    },
     table: undefined,
     setTable: (table) => {
         this.table = table;
@@ -21,7 +24,7 @@ module.exports = {
                     if (err) {
                         reject(err);
                     } else {
-                        if (typeof results === 'object' && results.length > 0) {
+                        if (typeof results === "object" && results.length > 0) {
                             resolve(results[0]);
                         } else {
                             resolve(null);
@@ -85,7 +88,7 @@ module.exports = {
                     if (err) {
                         reject(err);
                     } else {
-                        if (typeof results === 'object' && results.length > 0) {
+                        if (typeof results === "object" && results.length > 0) {
                             resolve(results[0]);
                         } else {
                             resolve(null);
@@ -105,7 +108,7 @@ module.exports = {
     update: function (id, data) {
         return new Promise((resolve, reject) => {
             mysql.query(
-                `UPDATE ${this.table} SET ? WHERE id = ?`,
+                `UPDATE ${this.table} SET ? WHERE id_${this.table} = ?`,
                 [data, id],
                 (err, results) => {
                     if (err) {
@@ -128,11 +131,29 @@ module.exports = {
             mysql.query(
                 `INSERT INTO ${this.table} SET ?`,
                 [data],
+                async (err, results) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        const lastInsertedId = await this.getLastInsertId();
+                        const lastInsertedEntity = await this.find(lastInsertedId);
+                        resolve(lastInsertedEntity);
+                    }
+                }
+            );
+        });
+    },
+
+    getLastInsertId: function () {
+        return new Promise((resolve, reject) => {
+            mysql.query(
+                `SELECT LAST_INSERT_ID() as id FROM ${this.table}`,
                 (err, results) => {
                     if (err) {
                         reject(err);
                     } else {
-                        resolve(results);
+                        const lastInsertedId = results[0].id;
+                        resolve(lastInsertedId);
                     }
                 }
             );

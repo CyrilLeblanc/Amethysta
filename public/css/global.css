@@ -1,0 +1,152 @@
+@import url('../../node_modules/font-awesome/css/font-awesome.min.css');
+
+:root {
+    --gray: #49484c;
+    --gray-light: #a8a7a9;
+    --gray-dark: #252428;
+
+    --accent: #4c3b76;
+    --accent-light: #9c8ac6;
+    --accent-dark: #1d1432;
+    
+    --white: #ece4ff;
+    --black: #161618;
+
+    color: var(--white);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+body {
+    background-color: var(--gray);
+}
+
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: -2.5px 10px 10px var(--black);
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: -2.5px -10px 10px var(--black);
+}
+
+.navbar {
+    display: flex;
+    padding: 0.5em 0;
+    justify-content: space-around;
+    background-color: var(--accent);
+}
+
+.navbar > .icon {
+    margin-top: 0.5em;
+}
+
+.icon {
+    border: none;
+    background-color: transparent;
+    color: var(--white);
+}
+
+.icon > i {
+    font-size: 2em;
+}
+
+.icon > i > label {
+    font-size: 1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#logo {
+    width: 150px;
+}
+
+.container {
+    margin: 5em 1em;
+}
+
+.card {
+    background-color: var(--gray-dark);
+    padding: 1em;
+    margin-bottom: 1em;
+}
+
+.top {
+    margin-bottom: 1em;
+}
+
+.bottom {
+    margin-top: 1em;
+}
+
+.middle {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.middle > img{
+    max-width: 90%;
+    margin: 0.25em;
+}
+
+.middle > #description {
+    width: 90%;
+    margin: 0.5em 1em;
+    font-size: small;
+    text-align: justify;
+}
+
+.white_shadow {
+    box-shadow: 0px 0px 15px var(--white);
+}
+
+#options, #save {
+    float: right;
+}
+
+.profile {
+    height: 35em;
+}
+
+#name {
+    margin: 1em auto;
+    font-size: x-large;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form > .submit, input, select {
+    background-color: var(--gray);
+    color: var(--white);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    border-radius: 16px;
+    margin: 0.5em auto 1em auto;
+    padding: 0.32em 2.5em;
+    width: 16em;
+}
+
+form > label {
+    margin: 0.5em auto 0em auto;
+}
+
+#profile_picture {
+    display: flex;
+    max-width: 10em;
+    border-radius: 50%;
+    border: solid 5px var(--white);
+    margin: 1em auto 0 auto;
+}

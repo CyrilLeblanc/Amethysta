@@ -1,0 +1,25 @@
+<div class="card white_shadow profile">
+    <div>
+        <button class="icon" id="qr_code">
+            <i class="fa-solid fa-qrcode"></i>
+        </button>
+    </div>
+    <img id="profile_picture" src="<%- user.picture_path %>">
+    <div id="name">
+        <label><%- user.firstname %> <%- user.lastname %></label>
+    </div>
+    <form method="POST">
+        <label>Email</label>
+            <input type="text" value="<%- user.email %>" name="email" required>
+        <label>Date of Birth</label>
+            <input type="date" value="<%- user.date_of_birth %>" name="date_of_birth" required>
+        <label>Country</label>
+            <select name="country" required>
+                <option value="<%- user.country %>"><%- user.country %></option>
+                <% for(country of ['France', 'England', 'Other']) {%>
+                <option value="<%- country %>"><%- country %></option>
+                <% } %>
+            </select>
+        <button class="submit" type="submit">Save</button>
+    </form>
+</div>
