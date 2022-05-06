@@ -88,7 +88,7 @@ body {
     flex-wrap: wrap;
 }
 
-.middle > img {
+.middle > img{
     max-width: 90%;
     margin: 0.25em;
 }
@@ -104,7 +104,7 @@ body {
     box-shadow: 0px 0px 15px var(--white);
 }
 
-#options, #save {
+#options, #save, #qr_code {
     float: right;
 }
 
@@ -112,9 +112,10 @@ body {
     height: 35em;
 }
 
-#qr_code {
-    display: block;
-    float: right;
+#name {
+    margin: 1.5em auto;
+    font-size: x-large;
+    text-align: center;
 }
 
 form {
@@ -123,13 +124,17 @@ form {
     flex-direction: column;
 }
 
-.submit, input, select {
+form > .submit, input, select {
     background-color: var(--gray);
     color: var(--white);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     border: none;
     border-radius: 16px;
-    width: fit-content;
-    margin: 0.5em;
-    padding: 0.32em 5em;
+    margin: 0.5em auto 1em auto;
+    padding: 0.32em 2.5em;
+    width: 16em;
+}
+
+form > label {
+    margin: 0.5em auto 0em auto;
 }

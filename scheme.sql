@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `amethysta`.`user` (
   `email` VARCHAR(45) NULL,
   `date_of_birth` DATE NULL,
   `country` VARCHAR(45) NULL,
-  `picture_path` VARCHAR(255) NULL,
+  `picture_path` VARCHAR(2048) NULL,
   `password` VARCHAR(255) NULL,
   `is_email_authorized` TINYINT NULL,
   `is_validate` TINYINT NULL,
