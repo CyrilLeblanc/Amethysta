@@ -1,7 +1,6 @@
 const bcrypt = require("bcryptjs");
 
-var UserRepository = require("./repository");
-UserRepository.table = "user";
+var UserRepository = require("./repository").init("user");
 /**
  * Register a new user
  * @param {string} email
@@ -45,5 +44,9 @@ UserRepository.findOneByEmail = async function (email) {
 UserRepository.userExist = async function (email) {
     return (await this.findOneBy("email", email)) !== null;
 };
+
+UserRepository.getById = async function (id) {
+    return (await this.findOneBy("id_user", id));
+}
 
 module.exports = UserRepository;

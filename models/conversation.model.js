@@ -1,5 +1,5 @@
 const MessageModel = require("./message.model");
-var ConversationModel = require("./repository");
+var ConversationModel = require("./repository").init("conversation");
 
 ConversationModel.getByUser = async function (user) {
     return await this.findAllBy("id_user", user.id_user);

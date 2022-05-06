@@ -1,8 +1,8 @@
 <h1><%- title %></h1>
 <form id="addPostForm" method="post">
     <div class="fieldset">
-        <label for="post">Post</label>
-        <input type="text" name="post" id="post" required>
+        <label for="data_path">Post</label>
+        <input type="text" name="data_path" id="post" required>
     </div>
     <div class="fieldset">
         <label for="description">Description</label>
@@ -10,15 +10,5 @@
     </div>
     <div class="fieldset">
         <input type="submit" value="Add post">
-    </div>
-
-    <p>j'affiche des trucs inutiles</p>
-    <p>liste des posts</p>
-    <div>
-        <% for (const post of allPost) { %>
-            <div class="allPost">
-                <%= post.description %>
-            </div>
-        <% } %>
     </div>
 </form>

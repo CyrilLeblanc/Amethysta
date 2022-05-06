@@ -1,10 +1,10 @@
 const mysql = require("./mysql");
 
 module.exports = {
+    // table: undefined,
     init: function (table) {
         return Object.assign({}, require("./repository"), { table: table });
     },
-    table: undefined,
     setTable: (table) => {
         this.table = table;
         return this;

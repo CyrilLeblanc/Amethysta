@@ -1,5 +1,4 @@
-var PostRepository = require("./repository");
-PostRepository.table = "post";
+var PostRepository = require("./repository").init("post");
 
 /**
  * post a new publication
