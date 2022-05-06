@@ -45,6 +45,10 @@ body {
     background-color: var(--accent);
 }
 
+.navbar > .icon {
+    margin-top: 0.5em;
+}
+
 .icon {
     border: none;
     background-color: transparent;
@@ -104,7 +108,7 @@ body {
     box-shadow: 0px 0px 15px var(--white);
 }
 
-#options, #save, #qr_code {
+#options, #save {
     float: right;
 }
 
@@ -113,7 +117,7 @@ body {
 }
 
 #name {
-    margin: 1.5em auto;
+    margin: 1em auto;
     font-size: x-large;
     text-align: center;
 }
@@ -137,4 +141,12 @@ form > .submit, input, select {
 
 form > label {
     margin: 0.5em auto 0em auto;
+}
+
+#profile_picture {
+    display: flex;
+    max-width: 10em;
+    border-radius: 50%;
+    border: solid 5px var(--white);
+    margin: 1em auto 0 auto;
 }
