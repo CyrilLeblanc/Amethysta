@@ -28,6 +28,7 @@ app.set("view engine", "ejs");
 app.use("/example", require(`${routeDir}/example.router`));
 app.use("/register", require(`${routeDir}/register.router`));
 app.use("/login", require(`${routeDir}/login.router`));
+app.use("/addPost", require(`${routeDir}/addPost.router`));
 app.use("/feed", require(`${routeDir}/feed.router`));
 app.use("/message", require(`${routeDir}/message.router`));
 app.use("/profile", require(`${routeDir}/profile.router`));
