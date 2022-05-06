@@ -46,4 +46,18 @@ UserRepository.userExist = async function (email) {
     return (await this.findOneBy("email", email)) !== null;
 };
 
+UserRepository.updateProfile = async function (
+    user,
+    email,
+    country,
+    date_of_birth
+) {
+    console.log(user.id_user, email, country, date_of_birth);
+    return await this.update( user.id_user, {
+        email: email,
+        country: country,
+        date_of_birth: date_of_birth
+    });
+}
+
 module.exports = UserRepository;

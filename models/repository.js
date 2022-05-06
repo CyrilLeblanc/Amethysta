@@ -108,7 +108,7 @@ module.exports = {
     update: function (id, data) {
         return new Promise((resolve, reject) => {
             mysql.query(
-                `UPDATE ${this.table} SET ? WHERE id = ?`,
+                `UPDATE ${this.table} SET ? WHERE id_${this.table} = ?`,
                 [data, id],
                 (err, results) => {
                     if (err) {
