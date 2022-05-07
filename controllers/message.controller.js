@@ -5,7 +5,7 @@ const ConversationModel = require("../models/conversation.model");
 
 module.exports = {
     displayConversationList: async function (req, res, next) {
-        var user = await UserHelper.getUser(req);
+        var user = req.user;
         var conversations = await ConversationModel.getByUser(user);
         res.render("base", {
             template: "conversations_list",
@@ -27,7 +27,7 @@ module.exports = {
         });
     },
     handleConversationForm: async function (req, res, next) {
-        var current_user = await UserHelper.getUser(req);
+        var current_user = req.user;
         var second_user = await UserModel.find(req.body.user);
         var conversation = await ConversationModel.create(
             current_user,
@@ -47,7 +47,7 @@ module.exports = {
         );
         var hydratedMessage = await MessageModel.hydrateMultiple(messages);
 
-        var currentUser = await UserHelper.getUser(req);
+        var currentUser = req.user;
 
         res.render("base", {
             template: "conversation",
@@ -70,7 +70,7 @@ module.exports = {
         });
     },
     sendMessage: async function (req, res, next) {
-        var user = await UserHelper.getUser(req);
+        var user = req.user;
         var conversation = await ConversationModel.find(
             req.params.id_conversation
         );

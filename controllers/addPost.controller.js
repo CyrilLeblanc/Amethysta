@@ -14,7 +14,7 @@ module.exports = {
         });
     },
     addNewPost: async function (req, res, next) {
-        const user = await UserHelper.getUser(req);
+        const user = req.user;
         var success = await Publication.publish(
             user.id_user,
             req.body.data_path,
