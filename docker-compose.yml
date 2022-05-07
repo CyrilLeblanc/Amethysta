@@ -11,6 +11,7 @@ services:
         ports:
             - ${WEB_EXTERNAL_PORT}:3000
         command: ["npm", "run", "${ENVIRONMENT}", "--prefix", "/app"]
+        restart: always
     database:
         container_name: ${PROJECT_NAME}-database
         image: mysql
@@ -24,6 +25,7 @@ services:
             - ${MYSQL_PORT}:3306
         volumes:
             - ./var-lib-mysql:/var/lib/mysql:rw
+        restart: always
     phpmyadmin:
         container_name: ${PROJECT_NAME}-phpmyadmin
         image: phpmyadmin/phpmyadmin
@@ -37,3 +39,4 @@ services:
             PMA_HOST: ${MYSQL_HOST}
             PMA_USER: root
             PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        restart: always
