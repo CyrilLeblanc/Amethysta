@@ -1,3 +1,7 @@
+/**
+ * This middleware is used to automatically log in the developer
+ * user in dev environment using the `ID_DEV_USER` value in `.env`
+ */
 
 module.exports = function(req, res, next) {
     const ENVIRONMENT = process.env.ENVIRONMENT;

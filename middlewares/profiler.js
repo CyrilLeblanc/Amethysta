@@ -1,5 +1,5 @@
 /**
- * Middleware to profile the request
+ * This middleware is used to log the request in the console.
  */
 module.exports = function (req, res, next) {
     if (process.env.ENVIRONMENT === "dev") {
