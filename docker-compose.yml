@@ -39,4 +39,3 @@ services:
             PMA_HOST: ${MYSQL_HOST}
             PMA_USER: root
             PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-        restart: always
