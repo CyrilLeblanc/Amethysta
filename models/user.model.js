@@ -18,7 +18,8 @@ UserRepository.register = async function (
     lastname,
     is_email_authorized,
     country,
-    date_of_birth
+    date_of_birth,
+    avatar
 ) {
     var hash = bcrypt.hashSync(password, 10);
     if (!(await this.userExist(email))) {
@@ -30,6 +31,7 @@ UserRepository.register = async function (
             is_email_authorized: is_email_authorized,
             country: country,
             date_of_birth: date_of_birth,
+            picture_path: avatar || "",
         });
         return true;
     } else {
