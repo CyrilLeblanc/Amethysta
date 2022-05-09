@@ -1,19 +1,22 @@
-<div class="message-wrapper">
-    <% for(message of messages) { %>
-    <div class="message <%- isMessageOwner(message) ? "me" : "other" %>-message">
-        <div class="datetime">
-            <div class="date">
-                <%= formatDate(message.date) %>
+<div class="card white_shadow chat">
+    <div class="messages">
+        <% for(message of messages) { %>
+        <div class="message <%- isMessageOwner(message) ? "me" : "other" %>_message">
+            <div class="datetime">
+                <div class="date">
+                    <%= formatDate(message.date) %>
+                </div>
+                <div class="time">
+                    <%= formatTime(message.date) %>
+                </div>
             </div>
-            <div class="time">
-                <%= formatTime(message.date) %>
-            </div>
+            <div class="content_message"><%- message.content %></div>
         </div>
-        <div class="content"><%- message.content %></div>
+        <% } %>
     </div>
-    <% } %>
+    <hr>
+    <form method="POST">
+        <input type="text" name="message" placeholder="Message" />
+        <button class="submit" type="submit">Send</button>
+    </form>
 </div>
-<form method="post" id="send-message">
-    <input type="text" name="message" placeholder="Message" />
-    <button type="submit">Send</button>
-</form>
