@@ -3,11 +3,10 @@ const modelUser = require("../models/user.model");
 
 module.exports = {
     getFeedPage: async function (req, res, next) {
-        var allPost = await modelPost.findAll();
+        var allPost = await modelPost.getOrderById();
         for (post of allPost) {
             post.user = await modelUser.find(post.id_user);
         }
-        console.log(allPost)
         res.render("base", {
             template: 'feed',
             title: "Feed",
