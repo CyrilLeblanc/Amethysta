@@ -1,16 +1,25 @@
-<h1><%- title %></h1>
-<a href="/message/new">New conversation</a>
-<div class="conversation-wrapper">
-    <% for(conversation of conversations) { %>
-    <div class="conversation">
-        <div class="participant-wrapper">
-            <% for(participant of conversation.users) { %>
-            <div class="participant">
-                <%- participant.firstname %> <%- participant.lastname %>
-            </div>
-            <% } %>
-        </div>
-        <a href="/message/<%- conversation.id_conversation %>">Go</a>
+<div class="card white_shadow conversation_list">
+    <h1><%- title %></h1>
+    <div id="new_conversation">
+        <a href="/message/new">
+            <button id="new_conversation_button">
+                New conversation
+            </button>
+        </a>
     </div>
-    <% }; %>
+    <br>
+    <hr>
+    <div class="conversations">
+        <% for(conversation of conversations) { %>
+        <div class="participants"><br>
+            <div class="participant">
+                <a href="/message/<%- conversation.id_conversation %>">
+                    <button class="submit">
+                        <%- conversation.users[1].firstname %> <%- conversation.users[1].lastname %>
+                    </button>
+                </a>
+            </div>
+        </div>
+        <% }; %>
+    </div>
 </div>

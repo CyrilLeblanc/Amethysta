@@ -8,6 +8,7 @@
     <div id="name">
         <label><%- user.firstname %> <%- user.lastname %></label>
     </div>
+    <hr>
     <form method="POST">
         <label>Email</label>
             <input type="text" value="<%- user.email %>" name="email" required>
@@ -16,10 +17,15 @@
         <label>Country</label>
             <select name="country" required>
                 <option value="<%- user.country %>"><%- user.country %></option>
-                <% for(country of ['France', 'England', 'Other']) {%>
+                <% for(country of ['France', 'USA', 'England', 'Germany', 'China', 'Japan','Other']) {%>
                 <option value="<%- country %>"><%- country %></option>
                 <% } %>
             </select>
-        <button class="submit" type="submit">Save</button>
+        <div class="form_bottom">
+            <a href="/logout">
+                <button id="logout" type="button">Logout</button>
+            </a>
+            <button class="submit" type="submit">Save</button>
+        </div>
     </form>
 </div>

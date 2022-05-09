@@ -7,6 +7,7 @@
 
     --accent: #4c3b76;
     --accent-light: #9c8ac6;
+    --accent-light-dark: #9567ff;
     --accent-dark: #1d1432;
     
     --white: #ece4ff;
@@ -18,6 +19,11 @@
 
 body {
     background-color: var(--gray);
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
 }
 
 .header {
@@ -92,12 +98,12 @@ body {
     flex-wrap: wrap;
 }
 
-.middle > img{
+.middle > .image{
     max-width: 90%;
     margin: 0.25em;
 }
 
-.middle > #description {
+.middle > .description {
     width: 90%;
     margin: 0.5em 1em;
     font-size: small;
@@ -112,8 +118,17 @@ body {
     float: right;
 }
 
-.profile {
+.profile, .register {
     height: 35em;
+}
+
+.login, .add_post {
+    height: 20em;
+}
+
+#new_conversation {
+    display: flex;
+    justify-content: center;
 }
 
 #name {
@@ -128,7 +143,7 @@ form {
     flex-direction: column;
 }
 
-form > .submit, input, select {
+form > input, select {
     background-color: var(--gray);
     color: var(--white);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -139,14 +154,115 @@ form > .submit, input, select {
     width: 16em;
 }
 
+.form_bottom, .form_content {
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form_content > input {
+    background-color: var(--gray);
+    color: var(--white);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    border-radius: 16px;
+    padding: 0.32em 2em;
+    width: 8em;
+}
+
+#new_conversation_button {
+    text-decoration: none;
+    background-color: var(--gray);
+    color: var(--white);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    border-radius: 16px;
+    padding: 0.32em 2.5em;
+    width: 16em;
+}
+
+form > .submit {
+    margin: auto;
+}
+
+.submit {
+    text-decoration: none;
+    background-color: var(--gray);
+    color: var(--white);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    border-radius: 16px;
+    padding: 0.32em 2.5em;
+    width: 16em;
+}
+
+.form_bottom > #logout, #register, .form_bottom > a > #logout {
+    text-decoration: none;
+    background-color: var(--gray);
+    color: var(--white);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    border-radius: 16px;
+    padding: 0.32em 2.5em;
+    width: 16em;
+}
+
 form > label {
     margin: 0.5em auto 0em auto;
 }
 
 #profile_picture {
     display: flex;
-    max-width: 10em;
+    width: 8em;
+    height: 8em;
     border-radius: 50%;
     border: solid 5px var(--white);
     margin: 1em auto 0 auto;
+}
+
+.conversations {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.participants {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.participant {
+    margin: 0.25em 0.5em;
+}
+
+.datetime {
+    font-size: x-small;
+}
+
+.message {
+    margin: 0.5em;
+}
+
+.content_message {
+    border-radius: 10px;
+    padding: 0.5em;
+}
+
+.me_message {
+    display: flex;
+    justify-content: end;
+}
+
+.me_message > .content_message {
+    background-color: var(--accent-light);
+}
+
+.other_message {
+    display: flex;
+    justify-content: start;
+}
+
+.other_message > .content_message {
+    background-color: var(--accent-light-dark);
 }

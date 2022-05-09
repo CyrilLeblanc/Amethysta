@@ -1,6 +1,6 @@
-<h1><%-title %></h1>
-<form method="post">
-    <div class="fieldset">
+<div class="card white_shadow new_conversation">
+    <h1><%-title %></h1>
+    <form method="POST">
         <label for="user">User</label>
         <select name="user" id="user" required>
             <option value="" select>Select a user</option>
@@ -10,6 +10,6 @@
             </option>
             <% } %>
         </select>
-    </div>
-    <button type="submit">Start a conversation</button>
-</form>
+        <button class="submit" type="submit">Start a conversation</button>
+    </form>
+</div>

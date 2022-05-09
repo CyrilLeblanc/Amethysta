@@ -28,7 +28,7 @@ UserRepository.register = async function (
             password: hash,
             firstname: firstname,
             lastname: lastname,
-            is_email_authorized: is_email_authorized,
+            is_email_authorized: is_email_authorized === "on" ? 1 : 0,
             country: country,
             date_of_birth: date_of_birth,
             picture_path: avatar || "",
