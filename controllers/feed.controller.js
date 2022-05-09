@@ -12,7 +12,7 @@ module.exports = {
             title: "Feed",
             stylePaths: [],
             scriptPaths: [],
-            allPost: allPost,
+            posts: allPost,
         });
     }
 };

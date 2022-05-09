@@ -1,4 +1,5 @@
 const mysql = require("./mysql");
+const UserModel = require("./user.model");
 var SaveModel = require("./repository").init("save");
 
 SaveModel.toggle = async function (user, post) {
@@ -41,6 +42,33 @@ SaveModel.remove = async function (user, post) {
     if (saves.length > 0) {
         return await this.delete(saves[0].id_save);
     }
+};
+
+SaveModel.getHydratedSavedPostsByUser = async function(user) {
+    var posts = await this.getSavedPostsByUser(user);
+    for(post of posts) {
+        post.user = await UserModel.find(post.id_user);
+    }
+    return posts;
+}
+
+SaveModel.getSavedPostsByUser = function (user) {
+    return new Promise((resolve, reject) => {
+        mysql.execute(
+            `SELECT post.id_post, post.id_user, post.data_path, post.description 
+            FROM \`save\`, \`post\` 
+            WHERE save.id_post = post.id_post AND
+            save.id_user = ?
+            ORDER BY post.id_post DESC`,
+            [user.id_user],
+            (err, rows) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(rows);
+            }
+        );
+    });
 };
 
 module.exports = SaveModel;
