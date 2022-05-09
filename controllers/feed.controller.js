@@ -4,13 +4,10 @@ const modelUser = require("../models/user.model");
 module.exports = {
     getFeedPage: async function (req, res, next) {
         var allPost = await modelPost.findAll();
-
-        allPost.forEach(async function(chat){
-                chat.id_user = await modelUser.getById(chat.id_user);
-        })
-        for (let i = 0; i < allPost.lenght; i++) {
-
+        for (post of allPost) {
+            post.user = await modelUser.find(post.id_user);
         }
+        console.log(allPost)
         res.render("base", {
             template: 'feed',
             title: "Feed",
@@ -18,5 +15,5 @@ module.exports = {
             scriptPaths: [],
             allPost: allPost,
         });
-    },
+    }
 };
