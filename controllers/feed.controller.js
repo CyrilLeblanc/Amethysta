@@ -5,10 +5,12 @@ const modelUser = require("../models/user.model");
 module.exports = {
     getFeedPage: async function (req, res, next) {
         var allPost = await modelPost.getOrderById();
+        const user = req.user;
         for (post of allPost) {
             post.user = await modelUser.find(post.id_user);
-            post.like = await modelLike.count(post.id_post);
-            console.log(post.like);
+            post.nbLike = await modelLike.count(post.id_post);
+            post.liked = await modelLike.isLiked(post.id_post, user.id_user);
+            console.log(post.liked);
         }
         res.render("base", {
             template: 'feed',

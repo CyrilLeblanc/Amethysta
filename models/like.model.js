@@ -32,6 +32,21 @@ LikeRepository.count = function (id_post) {
             }
         )
     })
+},
+
+LikeRepository.isLiked = function (id_post, id_user) {
+    return new Promise((resolve, reject) => {
+        mysql.execute(
+            `SELECT * FROM \`${this.table}\` WHERE id_post = ? AND id_user = ?`, [id_post, id_user],
+            (err, results) => {
+                if (err) {
+                    reject(err)
+                } else {
+                    resolve(results.length > 0);
+                }
+            }
+        )
+    })
 }
 
 // LikeRepository.dislikePost = async function (
