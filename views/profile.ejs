@@ -16,11 +16,15 @@
         <label>Country</label>
             <select name="country" required>
                 <option value="<%- user.country %>"><%- user.country %></option>
-                <% for(country of ['France', 'England', 'Other']) {%>
+                <% for(country of ['France', 'England', 'Germany', 'China', 'Japan','Other']) {%>
                 <option value="<%- country %>"><%- country %></option>
                 <% } %>
             </select>
-        <a href="/logout">Logout</a>
-        <button class="submit" type="submit">Save</button>
+        <div id="form_bottom">
+            <a href="/logout">
+                <button id="logout" type="button">Logout</button>
+            </a>
+            <button class="submit" type="submit">Save</button>
+        </div>
     </form>
 </div>
