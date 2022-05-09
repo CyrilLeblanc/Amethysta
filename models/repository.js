@@ -162,4 +162,20 @@ module.exports = {
             );
         });
     },
+
+    delete: function (id) {
+        return new Promise((resolve, reject) => {
+            mysql.query(
+                `DELETE FROM ${this.table} WHERE id_${this.table} = ?`,
+                [id],
+                (err, results) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(results);
+                    }
+                }
+            );
+        });
+    },
 };
