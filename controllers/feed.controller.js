@@ -33,4 +33,17 @@ module.exports = {
             res.redirect("feed?error=ERROR_LIKE_POST");
         }
     },
+    dislike: async function (req, res, next) {
+        const user = req.user;
+        const idPost = Number(req.params.id_post);
+        var success = await modelLike.dislikePost(
+            idPost,
+            user.id_user
+        );
+        if (success) {
+            res.redirect("/feed");
+        } else {
+            res.redirect("?error=ERROR_DISLIKE_POST");
+        }
+    }
 };

@@ -101,34 +101,6 @@ module.exports = {
     },
 
     /**
-     * find object with a double key
-     * @param {string} column1
-     * @param {string} column2
-     * @param {*} value1
-     * @param {*} value2
-     * @returns Promise
-     */
-     findOneDoubleKey: function (column1, value1, column2, value2) {
-        return new Promise((resolve, reject) => {
-            mysql.query(
-                `SELECT * FROM \`${this.table}\` WHERE ${column1} = ? AND ${column2} = ? LIMIT 1`,
-                [value1], [value2],
-                (err, results) => {
-                    if (err) {
-                        reject(err);
-                    } else {
-                        if (typeof results === "object" && results.length > 0) {
-                            resolve(results[0]);
-                        } else {
-                            resolve(null);
-                        }
-                    }
-                }
-            );
-        });
-    },
-
-    /**
      * update an object corresponding with id
      * @param {int} id
      * @param {object} data
@@ -194,7 +166,7 @@ module.exports = {
     delete: function (id) {
         return new Promise((resolve, reject) => {
             mysql.query(
-                `DELETE FROM ${this.table} WHERE id_${this.table} = ?`,
+                `DELETE FROM \`${this.table}\` WHERE id_${this.table} = ?`,
                 [id],
                 (err, results) => {
                     if (err) {

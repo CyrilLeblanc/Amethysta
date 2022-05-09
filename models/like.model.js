@@ -49,18 +49,23 @@ LikeRepository.isLiked = function (id_post, id_user) {
     })
 }
 
-// LikeRepository.dislikePost = async function (
-//     id_post,
-//     id_user
-// ) {
-//     await this.remove({ // remove doesn't exist for the moment
-        
-//     })
-// },
-
-// LikeRepository.getId = async function (id_post, id_user) {
-//     return await this.findAll2By("id_user", "id_post", id_user, id_post);
-// },
+LikeRepository.dislikePost = async function (
+    id_post,
+    id_user
+) {
+    return new Promise((resolve, reject) => {
+        mysql.execute(
+            `DELETE FROM \`${this.table}\` WHERE id_post = ? AND id_user = ?`, [id_post, id_user],
+            (err, results) => {
+                if (err) {
+                    reject(err)
+                } else {
+                    resolve(true);
+                }
+            }
+        )
+    })
+},
 
 
 module.exports = LikeRepository;
