@@ -9,17 +9,16 @@
     </div>
     <br>
     <hr>
-    <div>
+    <div class="conversations">
         <% for(conversation of conversations) { %>
-        <div class="conversation">
-            <div class="participant-wrapper">
-                <% for(participant of conversation.users) { %>
-                <div class="participant">
-                    <%- participant.firstname %> <%- participant.lastname %>
-                </div>
-                <% } %>
+        <div class="participants"><br>
+            <div class="participant">
+                <a href="/message/<%- conversation.id_conversation %>">
+                    <button class="submit">
+                        <%- conversation.users[1].firstname %> <%- conversation.users[1].lastname %>
+                    </button>
+                </a>
             </div>
-            <a href="/message/<%- conversation.id_conversation %>">Go</a>
         </div>
         <% }; %>
     </div>
