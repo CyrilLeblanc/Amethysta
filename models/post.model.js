@@ -1,4 +1,5 @@
-var PostRepository = require("./repository").init("post");
+var PostModel = require("./repository").init("post");
+const sql = require("./mysql");
 
 /**
  * post a new publication
@@ -7,17 +8,28 @@ var PostRepository = require("./repository").init("post");
  * @param {string} description
  */
 
-PostRepository.publish = async function (
-    id_user,
-    data_path,
-    description
-) {
+PostModel.publish = async function (id_user, data_path, description) {
     await this.insert({
         id_user: id_user,
         data_path: data_path,
-        description: description
+        description: description,
     });
     return true;
-}
+};
 
-module.exports = PostRepository;
+PostModel.getOrderById = function () {
+    return new Promise((resolve, reject) => {
+        sql.execute(
+            `SELECT * FROM ${this.table} ORDER BY id_${this.table} DESC;`,
+            [],
+            (err, rows) => {
+                if (err) {
+                    reject(err);
+                }
+                resolve(rows);
+            }
+        );
+    });
+};
+
+module.exports = PostModel;
