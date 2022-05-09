@@ -13,11 +13,13 @@
                 <label id="description" name="" id="" cols="30" rows="10"><%= post.description %></label>
             </div>
             <div class="bottom">
-                <button class="icon" id="like">
-                    <i class="fa-regular fa-heart">
-                        <label for="">128</label>
-                    </i>
-                </button>
+                <a href="/feed/<%= post.id_post %>">
+                    <button class="icon" id="like">
+                        <i class="fa-regular fa-heart" >
+                            <label for=""><%- post.like -%></label>
+                        </i>
+                    </button>
+                </a>
                 <button class="icon" id="comment">
                     <i class="fa-regular fa-comment">
                         <label for="">15</label>

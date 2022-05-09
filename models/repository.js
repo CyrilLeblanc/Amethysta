@@ -18,7 +18,7 @@ module.exports = {
     find: function (id) {
         return new Promise((resolve, reject) => {
             mysql.execute(
-                `SELECT * FROM ${this.table} WHERE id_${this.table} = ? LIMIT 1`,
+                `SELECT * FROM \`${this.table}\` WHERE id_${this.table} = ? LIMIT 1`,
                 [id],
                 (err, results) => {
                     if (err) {
@@ -60,7 +60,7 @@ module.exports = {
     findAllBy: function (column, value) {
         return new Promise((resolve, reject) => {
             mysql.query(
-                `SELECT * FROM ${this.table} WHERE ${column} = ?`,
+                `SELECT * FROM \`${this.table}\` WHERE ${column} = ?`,
                 [value],
                 (err, results) => {
                     if (err) {
@@ -82,7 +82,7 @@ module.exports = {
     findOneBy: function (column, value) {
         return new Promise((resolve, reject) => {
             mysql.query(
-                `SELECT * FROM ${this.table} WHERE ${column} = ? LIMIT 1`,
+                `SELECT * FROM \`${this.table}\` WHERE ${column} = ? LIMIT 1`,
                 [value],
                 (err, results) => {
                     if (err) {
@@ -108,7 +108,7 @@ module.exports = {
     update: function (id, data) {
         return new Promise((resolve, reject) => {
             mysql.query(
-                `UPDATE ${this.table} SET ? WHERE id_${this.table} = ?`,
+                `UPDATE \`${this.table}\` SET ? WHERE id_${this.table} = ?`,
                 [data, id],
                 (err, results) => {
                     if (err) {
@@ -129,7 +129,7 @@ module.exports = {
     insert: function (data) {
         return new Promise((resolve, reject) => {
             mysql.query(
-                `INSERT INTO ${this.table} SET ?`,
+                `INSERT INTO \`${this.table}\` SET ?`,
                 [data],
                 async (err, results) => {
                     if (err) {
@@ -147,7 +147,7 @@ module.exports = {
     getLastInsertId: function () {
         return new Promise((resolve, reject) => {
             mysql.query(
-                `SELECT LAST_INSERT_ID() as id FROM ${this.table}`,
+                `SELECT LAST_INSERT_ID() as id FROM \`${this.table}\``,
                 (err, results) => {
                     if (err) {
                         reject(err);
