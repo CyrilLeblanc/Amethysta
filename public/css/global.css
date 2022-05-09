@@ -117,7 +117,7 @@ h1 {
     float: right;
 }
 
-.profile {
+.profile, .register {
     height: 35em;
 }
 
@@ -148,10 +148,20 @@ form > input, select {
     width: 16em;
 }
 
-.form_bottom {
+.form_bottom, .form_content {
     margin-top: 1em;
     display: flex;
     justify-content: space-evenly;
+}
+
+.form_content > input {
+    background-color: var(--gray);
+    color: var(--white);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    border-radius: 16px;
+    padding: 0.32em 2em;
+    width: 8em;
 }
 
 .form_bottom > .submit, #logout, #register {

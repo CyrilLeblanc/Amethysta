@@ -16,7 +16,7 @@
         <label>Country</label>
             <select name="country" required>
                 <option value="<%- user.country %>"><%- user.country %></option>
-                <% for(country of ['France', 'England', 'Germany', 'China', 'Japan','Other']) {%>
+                <% for(country of ['France', 'USA', 'England', 'Germany', 'China', 'Japan','Other']) {%>
                 <option value="<%- country %>"><%- country %></option>
                 <% } %>
             </select>

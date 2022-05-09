@@ -1,46 +1,37 @@
-<h1><%- title %></h1>
-<form method="post" id="registerForm">
-    <div class="fieldset">
+<div class="card white_shadow register">
+    <h1><%- title %></h1>
+    <form method="POST">
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" required />
-    </div>
-    <div class="fieldset">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required />
-    </div>
-    <div class="fieldset">
-        <label for="confirmPassword">Confirm Password</label>
-        <input
-            type="password"
-            name="confirmPassword"
-            id="confirmPassword"
-            required
-        />
-    </div>
-    <div class="fieldset">
-        <label for="firstname">First Name</label>
-        <input type="text" name="firstname" id="firstname" required />
-    </div>
-    <div class="fieldset">
-        <label for="lastname">Last Name</label>
-        <input type="text" name="lastname" id="lastname" required />
-    </div>
-    <div class="fieldset">
-        <label for="acceptEmail">Do you accept receiving email ?</label>
-        <input type="checkbox" name="accept_email" id="acceptEmail" />
-    </div>
-    <div class="fieldset">
+            <input type="email" name="email" id="email" required />
+        <div class="form_content">
+            <label for="firstname">First Name</label>
+                <input type="text" name="firstname" id="firstname" required />
+            <label for="lastname">Last Name</label>
+                <input type="text" name="lastname" id="lastname" required />
+        </div>
+        <div class="form_content">
+            <label for="password">Password</label>
+                <input type="password" name="password" id="password" required />
+            <label for="confirmPassword">Confirm Password</label>
+                <input
+                    type="password"
+                    name="confirmPassword"
+                    id="confirmPassword"
+                    required
+                />
+        </div>
+        <br>
         <label for="country">Country</label>
-        <select name="country" id="country" required>
-            <option value="">Select a country</option>
-            <% for(country of ['France', 'England', 'Other']) {%>
-            <option value="<%- country %>"><%- country %></option>
-            <% } %>
-        </select>
-    </div>
-    <div class="fieldset">
+            <select name="country" id="country" required>
+                <option value="">Select a country</option>
+                <% for(country of ['France', 'USA', 'England', 'Germany', 'China', 'Japan','Other']) {%>
+                <option value="<%- country %>"><%- country %></option>
+                <% } %>
+            </select>
         <label for="birthDate">Date of birth</label>
-        <input type="date" name="date_of_birth" id="birthDate" required />
-    </div>
-    <button type="submit">Register</button>
-</form>
+            <input type="date" name="date_of_birth" id="birthDate" required />
+        <div class="form_bottom">
+            <button class="submit" type="submit">Register</button>
+        </div>
+    </form>
+</div>
