@@ -146,6 +146,7 @@ form > label {
 #profile_picture {
     display: flex;
     max-width: 10em;
+    max-height: 10em;
     border-radius: 50%;
     border: solid 5px var(--white);
     margin: 1em auto 0 auto;
