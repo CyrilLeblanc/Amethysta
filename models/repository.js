@@ -136,7 +136,9 @@ module.exports = {
                         reject(err);
                     } else {
                         const lastInsertedId = await this.getLastInsertId();
-                        const lastInsertedEntity = await this.find(lastInsertedId);
+                        const lastInsertedEntity = await this.find(
+                            lastInsertedId
+                        );
                         resolve(lastInsertedEntity);
                     }
                 }
@@ -154,6 +156,22 @@ module.exports = {
                     } else {
                         const lastInsertedId = results[0].id;
                         resolve(lastInsertedId);
+                    }
+                }
+            );
+        });
+    },
+
+    delete: function (id) {
+        return new Promise((resolve, reject) => {
+            mysql.query(
+                `DELETE FROM ${this.table} WHERE id_${this.table} = ?`,
+                [id],
+                (err, results) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(results);
                     }
                 }
             );
