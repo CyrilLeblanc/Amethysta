@@ -128,13 +128,30 @@ form {
     flex-direction: column;
 }
 
-form > .submit, input, select {
+form > input, select {
     background-color: var(--gray);
     color: var(--white);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     border: none;
     border-radius: 16px;
     margin: 0.5em auto 1em auto;
+    padding: 0.32em 2.5em;
+    width: 16em;
+}
+
+#form_bottom {
+    margin-top: 1em;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#form_bottom > .submit, #logout {
+    text-decoration: none;
+    background-color: var(--gray);
+    color: var(--white);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: none;
+    border-radius: 16px;
     padding: 0.32em 2.5em;
     width: 16em;
 }
@@ -146,6 +163,7 @@ form > label {
 #profile_picture {
     display: flex;
     max-width: 10em;
+    max-height: 10em;
     border-radius: 50%;
     border: solid 5px var(--white);
     margin: 1em auto 0 auto;
