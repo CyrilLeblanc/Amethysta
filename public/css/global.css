@@ -26,6 +26,10 @@ h1 {
     justify-content: center;
 }
 
+hr {
+    border: solid 0.5px var(--white);
+}
+
 .header {
     position: fixed;
     left: 0;
@@ -85,7 +89,18 @@ h1 {
 }
 
 .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 1em;
+}
+
+.top > img {
+    width: 2.5em;
+    height: 2.5em;
+    border: solid 2px var(--white);
+    border-radius: 50%;
+    margin-right: 0.5em;
 }
 
 .bottom {

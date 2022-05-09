@@ -32,4 +32,35 @@ PostModel.getOrderById = function () {
     });
 };
 
+PostModel.getAllByUser = function (user) {
+    return new Promise((resolve, reject) => {
+        mysql.execute(
+            "SELECT * FROM post WHERE id_user = ?",
+            [user.id_user],
+            (err, rows) => {
+                if (err) {
+                    throw err;
+                }
+                resolve(rows);
+            }
+        );
+    });
+};
+
+PostModel.getAllHydratedByUser = async function (user) {
+    const posts = await this.getAllByUser(user);
+    return await PostModel.hydrateMultiple(posts);
+}
+
+PostModel.hydrate = async function (post) {
+    post.user = await UserRepository.find(post.id_user);
+};
+
+PostModel.hydrateMultiple = async function (posts) {
+    for (post of posts) {
+        post = await PostModel.hydrate(post);
+    }
+    return posts;
+};
+
 module.exports = PostModel;
