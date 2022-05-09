@@ -15,7 +15,6 @@ SaveModel.isSaved = async function (user, post) {
 };
 
 SaveModel.getSave = async function (user, post) {
-    console.log(post);
     return new Promise((resolve, reject) => {
         mysql.execute(
             `SELECT * FROM ${this.table} WHERE id_user = ? AND id_post = ?`,

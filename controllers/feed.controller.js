@@ -10,7 +10,6 @@ module.exports = {
             post.user = await modelUser.find(post.id_user);
             post.nbLike = await modelLike.count(post.id_post);
             post.liked = await modelLike.isLiked(post.id_post, user.id_user);
-            console.log(post.liked);
         }
         res.render("base", {
             template: 'feed',
