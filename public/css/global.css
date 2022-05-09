@@ -7,6 +7,7 @@
 
     --accent: #4c3b76;
     --accent-light: #9c8ac6;
+    --accent-light-dark: #9567ff;
     --accent-dark: #1d1432;
     
     --white: #ece4ff;
@@ -180,7 +181,7 @@ form > input, select {
     width: 16em;
 }
 
-.new_conversation > form > .submit {
+form > .submit {
     margin: auto;
 }
 
@@ -233,4 +234,35 @@ form > label {
 
 .participant {
     margin: 0.25em 0.5em;
+}
+
+.datetime {
+    font-size: x-small;
+}
+
+.message {
+    margin: 0.5em;
+}
+
+.content_message {
+    border-radius: 10px;
+    padding: 0.5em;
+}
+
+.me_message {
+    display: flex;
+    justify-content: end;
+}
+
+.me_message > .content_message {
+    background-color: var(--accent-light);
+}
+
+.other_message {
+    display: flex;
+    justify-content: start;
+}
+
+.other_message > .content_message {
+    background-color: var(--accent-light-dark);
 }
