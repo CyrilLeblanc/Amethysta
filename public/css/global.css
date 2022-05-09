@@ -97,12 +97,12 @@ h1 {
     flex-wrap: wrap;
 }
 
-.middle > img{
+.middle > .image{
     max-width: 90%;
     margin: 0.25em;
 }
 
-.middle > #description {
+.middle > .description {
     width: 90%;
     margin: 0.5em 1em;
     font-size: small;
