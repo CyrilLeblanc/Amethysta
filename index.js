@@ -35,6 +35,7 @@ app.use("/message", require(`${routeDir}/message.router`));
 app.use("/profile", require(`${routeDir}/profile.router`));
 app.use("/notification", require(`${routeDir}/notification.router`));
 app.use("/comments", require(`${routeDir}/comments.router`));
+app.use("/logout", require(`${routeDir}/logout.router`));
 app.use("/", require(`${routeDir}/index.router`));
 
 // =====================================================
