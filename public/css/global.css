@@ -20,6 +20,11 @@ body {
     background-color: var(--gray);
 }
 
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
 .header {
     position: fixed;
     left: 0;
@@ -116,6 +121,10 @@ body {
     height: 35em;
 }
 
+.login {
+    height: 20em;
+}
+
 #name {
     margin: 1em auto;
     font-size: x-large;
@@ -139,13 +148,13 @@ form > input, select {
     width: 16em;
 }
 
-#form_bottom {
+.form_bottom {
     margin-top: 1em;
     display: flex;
     justify-content: space-evenly;
 }
 
-#form_bottom > .submit, #logout {
+.form_bottom > .submit, #logout, #register {
     text-decoration: none;
     background-color: var(--gray);
     color: var(--white);
