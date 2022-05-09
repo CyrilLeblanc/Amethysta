@@ -1,6 +1,7 @@
 const modelLike = require("../models/like.model");
 const modelPost = require("../models/post.model");
 const modelUser = require("../models/user.model");
+const modelSave = require("../models/save.model");
 
 module.exports = {
     getFeedPage: async function (req, res, next) {
@@ -10,6 +11,7 @@ module.exports = {
             post.user = await modelUser.find(post.id_user);
             post.nbLike = await modelLike.count(post.id_post);
             post.liked = await modelLike.isLiked(post.id_post, user.id_user);
+            post.isSaved = await modelSave.isSaved(user, post);
         }
         res.render("base", {
             template: 'feed',
