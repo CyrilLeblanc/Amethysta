@@ -1,31 +1,35 @@
-<div class="card white_shadow">
-    <div class="top">
-        <img src="" alt="">
-        <label>Nom Prénom</label>
-        <button class="icon" id="options">
-            <i class="fa-solid fa-ellipsis"></i>
-        </button>
-    </div>
-    <div class="middle">
-        <img class="white_shadow" src="" alt="image"/>
-        <label id="description" name="" id="" cols="30" rows="10">description</label>
-    </div>
-    <div class="bottom">
-        <button class="icon" id="like">
-            <i class="fa-regular fa-heart">
-                <label for="">128</label>
-            </i>
-        </button>
-        <button class="icon" id="comment">
-            <i class="fa-regular fa-comment">
-                <label for="">15</label>
-            </i>
-        </button>
-        <button class="icon" id="send">
-            <i class="fa-regular fa-paper-plane"></i>
-        </button>
-        <button class="icon" id="save">
-            <i class="fa-regular fa-bookmark"></i>
-        </button>
-    </div>
+<div class="feed">
+    <% for (const post of allPost) { %>    
+        <div class="post white_shadow">
+            <div class="top">
+                <img src="" alt="">
+                <label><%- post.id_user.firstname -%></label>
+                <button class="icon" id="options">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </button>
+            </div>
+            <div class="content">
+                <img class="white_shadow" src="<%= post.data_path %>" alt="image"/>
+                <label id="description" name="" id="" cols="30" rows="10"><%= post.description %></label>
+            </div>
+            <div class="bottom">
+                <button class="icon" id="like">
+                    <i class="fa-regular fa-heart">
+                        <label for="">128</label>
+                    </i>
+                </button>
+                <button class="icon" id="comment">
+                    <i class="fa-regular fa-comment">
+                        <label for="">15</label>
+                    </i>
+                </button>
+                <button class="icon" id="send">
+                    <i class="fa-regular fa-paper-plane"></i>
+                </button>
+                <button class="icon" id="save">
+                    <i class="fa-regular fa-bookmark"></i>
+                </button>
+            </div>
+        </div>
+    <% } %>
 </div>

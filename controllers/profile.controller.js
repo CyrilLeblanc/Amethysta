@@ -4,7 +4,7 @@ const UserModel = require("../models/user.model");
 module.exports = {
 
     getProfilePage: async function (req, res, next) {
-        var user = await UserHelper.getUser(req);
+        var user = req.user;
         user.date_of_birth = user.date_of_birth.toISOString().split('T')[0];
         res.render("base", {
             template: 'profile',
@@ -16,7 +16,7 @@ module.exports = {
     },
 
     changeUserInfos: async function(req, res, next) {
-        var user = await UserHelper.getUser(req);
+        var user = req.user;
         var email = req.body.email;
         var country = req.body.country;
         var date_of_birth = req.body.date_of_birth;

@@ -5,7 +5,7 @@ const ConversationModel = require("../models/conversation.model");
 
 module.exports = {
     displayConversationList: async function (req, res, next) {
-        var user = await UserHelper.getUser(req);
+        var user = req.user;
         var conversations = await ConversationModel.getByUser(user);
         res.render("base", {
             template: "conversations_list",
@@ -27,7 +27,7 @@ module.exports = {
         });
     },
     handleConversationForm: async function (req, res, next) {
-        var current_user = await UserHelper.getUser(req);
+        var current_user = req.user;
         var second_user = await UserModel.find(req.body.user);
         var conversation = await ConversationModel.create(
             current_user,
@@ -36,15 +36,18 @@ module.exports = {
         res.redirect("/message/" + conversation.id_conversation);
     },
     displayConversation: async function (req, res, next) {
-        var baseConversation = await ConversationModel.find(
+        var conversation = await ConversationModel.find(
             req.params.id_conversation
         );
         var hydratedConversation = await ConversationModel.hydrate(
-            baseConversation
+            conversation
         );
         var messages = await MessageModel.getByConversation(
             hydratedConversation
         );
+        var hydratedMessage = await MessageModel.hydrateMultiple(messages);
+
+        var currentUser = req.user;
 
         res.render("base", {
             template: "conversation",
@@ -52,11 +55,22 @@ module.exports = {
             stylePaths: [],
             scriptPaths: [],
             conversation: hydratedConversation,
-            messages: messages,
+            messages: hydratedMessage,
+            formatDate: function (date) {
+                var date = new Date(date);
+                return date.toISOString().split("T")[0];
+            },
+            formatTime: function (date) {
+                var date = new Date(date);
+                return date.toISOString().split("T")[1].split(".")[0];
+            },
+            isMessageOwner: function (message) {
+                return message.id_user === currentUser.id_user;
+            }
         });
     },
     sendMessage: async function (req, res, next) {
-        var user = await UserHelper.getUser(req);
+        var user = req.user;
         var conversation = await ConversationModel.find(
             req.params.id_conversation
         );

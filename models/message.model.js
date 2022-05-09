@@ -1,4 +1,5 @@
 const ConversationModel = require("./conversation.model");
+const UserModel = require("./user.model");
 const mysql = require("./mysql");
 var MessageModel = require("./repository").init("message");
 
@@ -22,6 +23,16 @@ MessageModel.create = async function (conversation, user, content) {
         id_user: user.id_user,
         content: content,
         date: new Date(),
-    })
+    });
+};
+MessageModel.hydrateMultiple = async function (messages) {
+    for (message of messages) {
+        message = await this.hydrate(message);
+    }
+    return messages;
+};
+MessageModel.hydrate = async function (message) {
+    message.user = await UserModel.find(message.id_user);
+    return message;
 };
 module.exports = MessageModel;

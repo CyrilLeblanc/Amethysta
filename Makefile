@@ -26,3 +26,6 @@ log: ## display log of web docker container
 
 update-scheme: ## update the scheme in database
 	cat scheme.sql | docker exec -i ${PROJECT_NAME}-database mysql -u${MYSQL_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE}
+
+load-fixtures: ## load fixtures in database
+	docker exec -it --user 0 ${PROJECT_NAME}-web bash -c "cd /app && npm run fixtures"

@@ -1,7 +1,6 @@
 const bcrypt = require("bcryptjs");
 
-var UserRepository = require("./repository");
-UserRepository.table = "user";
+var UserRepository = require("./repository").init("user");
 /**
  * Register a new user
  * @param {string} email
@@ -19,7 +18,8 @@ UserRepository.register = async function (
     lastname,
     is_email_authorized,
     country,
-    date_of_birth
+    date_of_birth,
+    avatar
 ) {
     var hash = bcrypt.hashSync(password, 10);
     if (!(await this.userExist(email))) {
@@ -31,6 +31,7 @@ UserRepository.register = async function (
             is_email_authorized: is_email_authorized === "on" ? 1 : 0,
             country: country,
             date_of_birth: date_of_birth,
+            picture_path: avatar || "",
         });
         return true;
     } else {
@@ -52,12 +53,14 @@ UserRepository.updateProfile = async function (
     country,
     date_of_birth
 ) {
-    console.log(user.id_user, email, country, date_of_birth);
-    return await this.update( user.id_user, {
+    return await this.update(user.id_user, {
         email: email,
         country: country,
-        date_of_birth: date_of_birth
+        date_of_birth: date_of_birth,
     });
-}
+};
+UserRepository.getById = async function (id) {
+    return await this.findOneBy("id_user", id);
+};
 
 module.exports = UserRepository;

@@ -18,7 +18,7 @@ module.exports = {
     getSession: async function(req, res, next) {
         var UserHelper = require('../helpers/user.helper');
         res.json(
-            await UserHelper.getUser(req)
+            req.user
         );
     }
 };

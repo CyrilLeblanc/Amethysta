@@ -1,7 +1,6 @@
 const MessageModel = require("./message.model");
 const UserModel = require("./user.model");
 const mysql = require("./mysql");
-
 var ConversationModel = require("./repository").init("conversation");
 
 ConversationModel.getByUser = function (user) {

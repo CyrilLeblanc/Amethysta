@@ -1,5 +1,4 @@
-var repo = require("./repository");
-repo.table = "example";
+var repo = require("./repository").init("user");
 
 module.exports = {
     getAllExample: async function () {
