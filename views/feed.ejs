@@ -2,12 +2,13 @@
     <% for (const post of allPost) { %>    
         <div class="card white_shadow">
             <div class="top">
-                <img src="" alt="">
+                <img src="<%- post.user.picture_path -%>" alt="">
                 <label><%- post.user.firstname -%> <%- post.user.lastname -%></label>
                 <button class="icon" id="options">
                     <i class="fa-solid fa-ellipsis"></i>
                 </button>
             </div>
+            <hr>
             <div class="middle">
                 <div class="image">
                     <img class="white_shadow" src="<%= post.data_path %>" alt="image"/>
@@ -16,6 +17,7 @@
                     <label id="description" name="" id="" cols="30" rows="10"><%= post.description %></label>
                 </div>
             </div>
+            <hr>
             <div class="bottom">
                 <button class="icon" id="like">
                     <i class="fa-regular fa-heart">

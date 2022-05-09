@@ -85,7 +85,18 @@ h1 {
 }
 
 .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 1em;
+}
+
+.top > img {
+    width: 2.5em;
+    height: 2.5em;
+    border: solid 2px var(--white);
+    border-radius: 50%;
+    margin-right: 0.5em;
 }
 
 .bottom {
@@ -245,7 +256,7 @@ form > label {
 }
 
 .content_message {
-    border-radius: 10px;
+    border-radius: 50%;
     padding: 0.5em;
 }
 
