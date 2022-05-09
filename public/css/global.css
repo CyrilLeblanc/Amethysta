@@ -121,7 +121,7 @@ h1 {
     height: 35em;
 }
 
-.login {
+.login, .add_post {
     height: 20em;
 }
 

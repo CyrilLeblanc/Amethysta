@@ -1,14 +1,12 @@
-<h1><%- title %></h1>
-<form id="addPostForm" method="post">
-    <div class="fieldset">
-        <label for="data_path">Post</label>
-        <input type="text" name="data_path" id="post" required>
-    </div>
-    <div class="fieldset">
+<div class="card white_shadow add_post">
+    <h1><%- title %></h1>
+    <form method="POST">
+        <label for="data_path">Picture</label>
+            <input type="text" name="data_path" id="post" required>
         <label for="description">Description</label>
-        <input type="text" name="description" id="description">
-    </div>
-    <div class="fieldset">
-        <input type="submit" value="Add post">
-    </div>
-</form>
+            <input type="text" name="description" id="description">
+        <div class="form_bottom">
+            <button class="submit" type="submit">Add post</button>
+        </div>
+    </form>
+</div>
