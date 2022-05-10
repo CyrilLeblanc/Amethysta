@@ -1,13 +1,10 @@
 <div class="feed">
     <% for (const post of allPost) { %>    
         <div class="card white_shadow">
-            <div class="top">
+            <a class="top" href="/profile/<%- post.user.id_user-%>">
                 <img src="<%- post.user.picture_path -%>" alt="">
                 <label><%- post.user.firstname -%> <%- post.user.lastname -%></label>
-                <button class="icon" id="options">
-                    <i class="fa-solid fa-ellipsis"></i>
-                </button>
-            </div>
+            </a>
             <hr>
             <div class="middle">
                 <div class="image">

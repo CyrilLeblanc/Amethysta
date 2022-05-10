@@ -4,12 +4,13 @@
             <i class="fa-solid fa-qrcode"></i>
         </button>
     </div>
+    <% if(user.id_user === targetUser.id_user) { %>
     <img id="profile_picture" src="<%- user.picture_path %>">
     <div id="name">
         <label><%- user.firstname %> <%- user.lastname %></label>
     </div>
     <hr>
-    <form method="POST">
+    <form class="user_infos" method="POST">
         <label>Email</label>
             <input type="text" value="<%- user.email %>" name="email" required>
         <label>Date of Birth</label>
@@ -28,4 +29,19 @@
             <button class="submit" type="submit">Save</button>
         </div>
     </form>
+    <% } else { %>
+    <img id="profile_picture" src="<%- targetUser.picture_path %>">
+    <div id="name">
+        <label><%- targetUser.firstname %> <%- targetUser.lastname %></label>
+    </div>
+    <hr>
+    <div class="user_infos">
+        <label>Email</label>
+            <input type="text" value="<%- targetUser.email %>" name="email" disabled>
+        <label>Date of Birth</label>
+            <input type="date" value="<%- targetUser.date_of_birth %>" name="date_of_birth" disabled>
+        <label>Country</label>
+            <input type="text" value="<%- targetUser.country %>" disabled>
+    </div>
+    <% } %>
 </div>

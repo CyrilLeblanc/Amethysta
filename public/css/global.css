@@ -91,8 +91,9 @@ hr {
 .top {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     margin-bottom: 1em;
+    text-decoration: none;
+    color: var(--white);
 }
 
 .top > img {
@@ -152,13 +153,13 @@ hr {
     text-align: center;
 }
 
-form {
+form, .user_infos {
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-form > input, select {
+form > input, select, .user_infos > input, select {
     background-color: var(--gray);
     color: var(--white);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -222,7 +223,7 @@ form > .submit {
     width: 16em;
 }
 
-form > label {
+form > label, .user_infos > label {
     margin: 0.5em auto 0em auto;
 }
 
