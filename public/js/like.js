@@ -11,7 +11,6 @@ $(document).ready(function () {
                 var $label = $icon.find("label");
                 var oldValue = Number($label.text());
                 var url = $button.attr("href");
-                console.log($label, $icon, $button);
                 $icon.toggleClass(["fa-regular", "fa-solid"]);
                 if (isAdd) {
                     $label.text(oldValue + 1);
@@ -20,7 +19,6 @@ $(document).ready(function () {
                     $label.text(oldValue - 1);
                     $button.attr("href", url.replace("/dislike", "/like"));
                 }
-                console.log(isAdd);
             },
         });
     });
