@@ -1,8 +1,8 @@
 <div class="card white_shadow profile">
     <div>
-        <button class="icon" id="qr_code">
+        <a class="icon" id="qr_code" href="/qrcode">
             <i class="fa-solid fa-qrcode"></i>
-        </button>
+        </a>
     </div>
     <% if(user.id_user === targetUser.id_user) { %>
     <img id="profile_picture" src="<%- user.picture_path %>">

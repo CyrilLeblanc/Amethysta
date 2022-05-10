@@ -37,6 +37,7 @@ app.use("/notification", require(`${routeDir}/notification.router`));
 app.use("/comment", require(`${routeDir}/comment.router`));
 app.use("/logout", require(`${routeDir}/logout.router`));
 app.use("/save", require(`${routeDir}/save.router`));
+app.use("/qrcode", require(`${routeDir}/qrcode.router`));
 app.use("/", require(`${routeDir}/index.router`));
 
 // =====================================================
