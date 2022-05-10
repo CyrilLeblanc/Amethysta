@@ -1,12 +1,18 @@
-const UserHelper = require("../helpers/user.helper");
 const UserModel = require("../models/user.model");
 const SaveModel = require("../models/save.model");
+const LikeModel = require("../models/like.model");
 module.exports = {
 
     getProfilePage: async function (req, res, next) {
         var user = req.user;
         user.date_of_birth = user.date_of_birth.toISOString().split('T')[0];
         var posts = await SaveModel.getHydratedSavedPostsByUser(user);
+        for (post of posts) {
+            post.user = await UserModel.find(post.id_user);
+            post.nbLike = await LikeModel.count(post.id_post);
+            post.liked = await LikeModel.isLiked(post.id_post, user.id_user);
+            post.isSaved = await SaveModel.isSaved(user, post);
+        }
         res.render("base", {
             template: 'profile',
             title: "Profile",
