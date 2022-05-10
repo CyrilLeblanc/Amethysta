@@ -20,7 +20,7 @@
             <hr>
             <div class="bottom">
                 <% if( post.liked ){ %>
-                    <a href="/feed/dislike/<%= post.id_post %>"> 
+                    <a href="/feed/dislike/<%= post.id_post %>" class="like-button"> 
                         <button if="" class="icon" id="like">
                             <i class="fa-solid fa-heart" >
                                 <label for=""><%- post.nbLike -%></label>
@@ -28,7 +28,7 @@
                         </button>
                     </a>
                 <% } else{ %>  
-                    <a href="/feed/like/<%= post.id_post %>">
+                    <a href="/feed/like/<%= post.id_post %>" class="like-button">
                         <button class="icon" id="like">
                             <i class="fa-regular fa-heart" >
                                 <label for=""><%- post.nbLike -%></label>
@@ -56,3 +56,4 @@
 <% } %>
 <script src="/js/save.js"></script>
 <script src="/js/comment.js"></script>
+<script src="/js/like.js"></script>
