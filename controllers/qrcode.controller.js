@@ -8,7 +8,7 @@ module.exports = {
             title: "Qrcode",
             stylePaths: [],
             scriptPaths: [],
-            qrcode: process.env.WEB_PROTOCOL + "://" + process.env.WEB_HOSTNAME + ":" + process.env.WEB_EXTERNAL_PORT + "/profile/" + user.id_user
+            qrcode: encodeURI(process.env.WEB_PROTOCOL + "://" + process.env.WEB_HOSTNAME + ":" + process.env.WEB_EXTERNAL_PORT + "/profile/" + user.id_user)
         });
     },
 }
