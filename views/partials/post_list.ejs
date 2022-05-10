@@ -36,9 +36,9 @@
                         </button>
                     </a>
                  <% } %>
-                <button class="icon add-comment" id="comment" data-id_post="<%- post.id_post %> ">
+                <button class="icon add-comment" id="comment" data-id_post="<%- post.id_post %>">
                     <i class="fa-regular fa-comment">
-                        <label for="">15</label>
+                        <label for=""><%- post.commentCount %></label>
                     </i>
                 </button>
                 <a href="/save/<%- post.id_post %>" class="save-button">

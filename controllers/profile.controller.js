@@ -1,6 +1,7 @@
 const UserModel = require("../models/user.model");
 const SaveModel = require("../models/save.model");
 const LikeModel = require("../models/like.model");
+const CommentModel = require("../models/comment.model");
 module.exports = {
 
     getProfilePage: async function (req, res, next) {
@@ -12,6 +13,7 @@ module.exports = {
             post.nbLike = await LikeModel.count(post.id_post);
             post.liked = await LikeModel.isLiked(post.id_post, user.id_user);
             post.isSaved = await SaveModel.isSaved(user, post);
+            post.commentCount = await CommentModel.count(post);
         }
         res.render("base", {
             template: 'profile',

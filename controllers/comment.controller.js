@@ -21,4 +21,13 @@ module.exports = {
             res.status(200).json(comment);
         }
     },
+    count: async function (req, res, next) {
+        const post = await PostModel.find(req.params.id_post);
+        if (!post) {
+            return res.status(404).json("Post not found");
+        } else {
+            const count = await CommentModel.count(post);
+            return res.status(200).json(count);
+        }
+    }
 };

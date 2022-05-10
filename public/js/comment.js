@@ -67,8 +67,9 @@ $(document).ready(function () {
             },
             success: function (data) {
                 $content.val("");
-                console.log(data);
                 $comments.append(getCommentTemplate(data))
+                var $label = $(`[data-id_post="${data.id_post}"]`).find("i > label");
+                $label.text(Number($label.text()) + 1);
             },
         });
     });
