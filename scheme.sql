@@ -117,6 +117,7 @@ CREATE TABLE IF NOT EXISTS `amethysta`.`comment` (
   `id_post` INT NOT NULL,
   `id_user` INT NOT NULL,
   `content` VARCHAR(255) NULL,
+  `created_at` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_comment`),
   INDEX `fk_comment_post1_idx` (`id_post` ASC) VISIBLE,
   INDEX `fk_comment_user1_idx` (`id_user` ASC) VISIBLE,

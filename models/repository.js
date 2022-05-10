@@ -140,7 +140,11 @@ module.exports = {
                         const lastInsertedEntity = await this.find(
                             lastInsertedId
                         );
-                        resolve(lastInsertedEntity);
+                        if (typeof this.hydrate === "function") {
+                            resolve(await this.hydrate(lastInsertedEntity));
+                        } else {
+                            resolve(lastInsertedEntity);
+                        }
                     }
                 }
             );

@@ -1,6 +1,7 @@
 <% if (posts.length === 0) { %>
     <p>No posts yet.</p>
 <% } else { %>
+    <%- include('comment-form') %>
     <% for(post of posts) { %> 
         <div class="card white_shadow">
             <div class="top">
@@ -38,14 +39,11 @@
                         </button>
                     </a>
                  <% } %>
-                <button class="icon" id="comment">
+                <button class="icon add-comment" id="comment" data-id_post="<%- post.id_post %> ">
                     <i class="fa-regular fa-comment">
                         <label for="">15</label>
                     </i>
-                <!-- </button>
-                <button class="icon" id="send">
-                    <i class="fa-regular fa-paper-plane"></i>
-                </button> -->
+                </button>
                 <a href="/save/<%- post.id_post %>" class="save-button">
                     <button class="icon" id="save">
                         <% if(post.isSaved === true) { %>
@@ -60,3 +58,4 @@
     <% } %>
 <% } %>
 <script src="/js/save.js"></script>
+<script src="/js/comment.js"></script>
