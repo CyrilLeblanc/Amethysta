@@ -6,9 +6,9 @@
             <div class="top">
                 <img src="<%- post.user.picture_path -%>" alt="">
                 <label><%- post.user.firstname -%> <%- post.user.lastname -%></label>
-                <button class="icon" id="options">
+                <!-- <button class="icon" id="options">
                     <i class="fa-solid fa-ellipsis"></i>
-                </button>
+                </button> -->
             </div>
             <hr>
             <div class="middle">
@@ -42,10 +42,10 @@
                     <i class="fa-regular fa-comment">
                         <label for="">15</label>
                     </i>
-                </button>
+                <!-- </button>
                 <button class="icon" id="send">
                     <i class="fa-regular fa-paper-plane"></i>
-                </button>
+                </button> -->
                 <a href="/save/<%- post.id_post %>" class="save-button">
                     <button class="icon" id="save">
                         <% if(post.isSaved === true) { %>
