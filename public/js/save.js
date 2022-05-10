@@ -1,5 +1,3 @@
-const $ = jQuery;
-
 $(document).ready(function () {
     $("a.save-button").click(function (event) {
         event.preventDefault();
