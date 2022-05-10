@@ -45,6 +45,8 @@
     </div>
     <% } %>
 </div>
+<% if(user.id_user === targetUser.id_user) { %>
 <div class="feed">
     <%- include("partials/post_list") %>
 </div>
+<% } %>
