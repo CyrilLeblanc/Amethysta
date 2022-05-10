@@ -324,3 +324,14 @@ form > label, .user_infos > label {
 .comment > .body {
     font-size: small;
 }
+
+.qrcode {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.qrcode > img {
+    margin: 1em auto;
+    width: 75%;
+}
