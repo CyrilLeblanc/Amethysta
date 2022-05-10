@@ -18,8 +18,24 @@ module.exports = {
             title: "Profile",
             stylePaths: [],
             scriptPaths: [],
+            targetUser: user,
             user: user,
             posts: posts
+        });
+    },
+
+    otherUserProfile: async function(req, res, next) {
+        var targetUser = await UserModel.find(req.params.id_user);
+        targetUser.date_of_birth = targetUser.date_of_birth.toISOString().split('T')[0];
+        var user = req.user;
+        user.date_of_birth = user.date_of_birth.toISOString().split('T')[0];
+        res.render("base", {
+            template: 'profile',
+            title: "Profile",
+            stylePaths: [],
+            scriptPaths: [],
+            targetUser: targetUser,
+            user: user
         });
     },
 
