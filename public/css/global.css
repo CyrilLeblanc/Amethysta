@@ -286,3 +286,23 @@ form > label, .user_infos > label {
 .other_message > .content_message {
     background-color: var(--accent-light-dark);
 }
+
+.comment-wrapper {
+    display: none;
+    position: fixed;
+    right: 2em;
+    left: 2em;
+    top: 5.5em;
+    z-index: 100;
+    box-shadow: 0px 5px 10px var(--white);
+}
+
+.comment-wrapper > button {
+    float: right;
+    text-decoration: none;
+    background-color: transparent;
+    color: var(--white);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: large;
+    border: none;
+}

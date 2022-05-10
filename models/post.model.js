@@ -1,4 +1,5 @@
 var PostModel = require("./repository").init("post");
+var UserRepository = require("../models/user.model");
 const sql = require("./mysql");
 
 /**
