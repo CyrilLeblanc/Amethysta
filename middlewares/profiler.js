@@ -2,7 +2,10 @@
  * This middleware is used to log the request in the console.
  */
 module.exports = function (req, res, next) {
-    if (process.env.ENVIRONMENT === "dev") {
+    var rootPath = req.url.split("/")[1];
+    const disabledRootPath = ["data", "js", "css", "img", "node_modules"];
+    const isEnabledRootPath = disabledRootPath.indexOf(rootPath) === -1;
+    if (process.env.ENVIRONMENT === "dev" && isEnabledRootPath) {
         const dateNow = Date.now();
         next();
         const dateAfter = Date.now();
