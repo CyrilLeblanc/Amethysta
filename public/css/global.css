@@ -108,6 +108,10 @@ hr {
     margin-top: 1em;
 }
 
+.bottom > a {
+    text-decoration: none;
+}
+
 .middle {
     display: flex;
     justify-content: center;
