@@ -21,11 +21,23 @@
             </div>
             <hr>
             <div class="bottom">
-                <button class="icon" id="like">
-                    <i class="fa-regular fa-heart">
-                        <label for="">128</label>
-                    </i>
-                </button>
+                <% if( post.liked ){ %>
+                    <a href="/feed/dislike/<%= post.id_post %>"> 
+                        <button if="" class="icon" id="like">
+                            <i class="fa-solid fa-heart" >
+                                <label for=""><%- post.nbLike -%></label>
+                            </i>
+                        </button>
+                    </a>
+                <% } else{ %>  
+                    <a href="/feed/like/<%= post.id_post %>">
+                        <button class="icon" id="like">
+                            <i class="fa-regular fa-heart" >
+                                <label for=""><%- post.nbLike -%></label>
+                            </i>
+                        </button>
+                    </a>
+                 <% } %>
                 <button class="icon" id="comment">
                     <i class="fa-regular fa-comment">
                         <label for="">15</label>
