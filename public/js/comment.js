@@ -6,31 +6,10 @@ const getCommentTemplate = function (comment) {
     const datetime = new Date(comment.created_at);
     return $("<div/>", {
         class: "comment",
-        html: `
-        ${
-            $("<div/>", {
-                class: "user-info",
-                text: comment.user.lastname + " " + comment.user.firstname,
-            }).html()
-        }
-        ${
-            $("<div/>", {
-            class: "date",
-            text: datetime.toISOString().split("T")[0],
-        }).html()
-        }
-            ${
-                $("<div/>", {
-                class: "time",
-                text: datetime.toISOString().split("T")[1].split(".")[0],
-            }).html()
-        }
-            ${
-                $("<div/>", {
-                class: "body",
-                text: comment.content,
-            }).html()
-        }`,
+        html: `<a href="/profile/${comment.id_user}" class="user-info">${comment.user.lastname + " " + comment.user.firstname}</a>` + 
+        `<div class="date">${datetime.toISOString().split("T")[0]}</div>` + 
+        `<div class="time">${datetime.toISOString().split("T")[1].split(".")[0]}</div>` +
+        `<div class="body">${comment.content}</div>`
     });
 };
 
@@ -40,7 +19,7 @@ const displayCommentForm = function (idPost) {
     loadComments(idPost);
     $form.attr("action", `/comment/add/${idPost}`)
     $form.find('[name="content"]').val("");
-    $wrapper.show();
+    $wrapper.css("display", "flex");
 };
 
 // hide the comment form
